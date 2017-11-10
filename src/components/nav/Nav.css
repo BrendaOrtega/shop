@@ -1,0 +1,25 @@
+.nav{
+    border-bottom: 1px solid #8E1C58;
+    background-color: #8E1C58;
+    height:60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav img{
+    width:100px;
+    margin:0 30px;
+    align-self: center;
+}
+.nav button{
+    margin:0 30px;
+    align-self: center;
+    color:#8E1C58;
+    background-color: white;
+    border:transparent;
+    border-radius: 3px;
+    height:35px;
+    width:110px;
+    font-weight:bolder;
+    font-size: 13px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
 import {Routes} from './Routes';
 import './App.css';
+import Footer from './components/footer/Footer';
 
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
         return (
             <div>
                 <Routes />
+                <Footer />
             </div>
         );
     }

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Slide.css';
-import Btn from './Btn';
 import logo from '../../../assets/shopyy.png';
 
 export const SlideDisplay = () => {

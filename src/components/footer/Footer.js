@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Footer.css';
 import FontAwesome from 'react-fontawesome';
-
+import {Link} from 'react-router-dom';
 
 class Footer extends Component {
     render() {
@@ -15,8 +15,12 @@ class Footer extends Component {
                         <FontAwesome name='instagram' className='ic' size='2x'/>
                     </div>
                     <div className="box_footer">
-                        <p>Acerca de Shoppy</p>
-                        <p>Conviértete en socio repartidor</p>
+                        <Link to="/about">
+                            <p>Acerca de Shoppy</p>
+                        </Link>
+                        <Link to ="/deliver">
+                            <p>Conviértete en socio repartidor</p>
+                        </Link>
                         <p>Contacto</p>
                     </div>
                     <div className="box_footer">
