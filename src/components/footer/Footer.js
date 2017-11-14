@@ -21,7 +21,9 @@ class Footer extends Component {
                         <Link to ="/deliver">
                             <p>Conviértete en socio repartidor</p>
                         </Link>
-                        <p>Contacto</p>
+                        <Link to="/contacto">
+                            <p>Contacto</p>
+                        </Link>
                     </div>
                     <div className="box_footer">
                         <p>Zonas de Servicio</p>

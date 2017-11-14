@@ -57,8 +57,10 @@
     margin-top: 40px;
     text-align: center;
 }
-.data{
-
+.requisitos p{
+    font-family: 'Open Sans', sans-serif;
+    color:rgb(51, 51, 51);
+    font-size: 25px;
 }
 .requisitos h3{
     font-family: 'Open Sans', sans-serif;
@@ -69,7 +71,8 @@
 .requisitos h4{
     font-family: 'Open Sans', sans-serif;
     color:rgb(51, 51, 51);
-    font-size:22px ;
+    font-size: 22px;
+
 }
 .descr{
     font-family: 'Open Sans', sans-serif;
@@ -82,4 +85,19 @@
     color:rgb(51, 51, 51);
     font-size: 18px;
     margin:0;
+}
+@media(max-width: 428px){
+    .encabezado{
+        height:auto;
+    }
+    .encabezado p{
+        margin-bottom: 0;
+    }
+    .present h2, .present p{
+        margin:0 20px;
+        padding: 20px 0;
+    }
+    .request{
+        text-align: center;
+    }
 }

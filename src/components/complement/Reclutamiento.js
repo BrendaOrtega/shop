@@ -26,9 +26,9 @@ class Reclutamiento extends Component {
                 <div className="white">
                     <div className="request">
 
-                        <div className="requisitos data">
+                        <div className="requisitos">
                             <h3>Sé un shopper</h3>
-                            <p className="descr" >Al convertirte en shopper tu decides tu horario de trabajo, aumentarás tus ingresos, obtendras propinas sin comisión y serás parr=te de nuestro team. </p>
+                            <p className="descr" >Al convertirte en shopper tu decides tu horario de trabajo, aumentarás tus ingresos, obtendras propinas sin comisión y serás parte de nuestro team. </p>
                             <h4>¿Qué necesitas?</h4>
                             <p className="option"><FontAwesome name='check' className="icon_about" size='1x'/> Identificación</p>
                             <br/>

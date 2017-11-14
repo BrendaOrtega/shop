@@ -8,9 +8,12 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 const WithRouter = () => (
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+
+
 );
 
 ReactDOM.render(<WithRouter />, document.getElementById('root'));

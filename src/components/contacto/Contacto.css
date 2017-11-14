@@ -1,0 +1,72 @@
+.contacto{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.padd{
+    padding-top: 30px;
+}
+
+.recuadro{
+    width: 	100%;
+}
+.datos{
+    display: inline-flex;
+    width: 60%;
+}
+.campo{
+    width: 100%;
+}
+.forms{
+    width: 60%;
+    border-radius: 3px;
+    border:1px solid #E0E0E0 ;
+    padding:7px;
+    background-color: transparent;
+    color:white;
+}
+.lefs{
+    margin-left: 19px;
+}
+
+.formas{
+    width: 80%;
+    border-radius: 3px;
+    border:1px solid #E0E0E0 ;
+    background-color: transparent;
+    color:white;
+}
+.btn_form{
+    margin:20px auto;
+}
+.option{
+    width: 100%;
+
+}
+.contenido{
+    padding-top: 100px;
+}
+.saludo{
+    font-size: 60px;
+    margin: 0;
+}
+.mensaje{
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+.btn_form{
+    border:1px solid #E0E0E0;
+    background-color: transparent;
+    opacity: .8;
+    border-radius: 3px;
+    padding:4px 9px;
+    color:white;
+    cursor: pointer;
+}
+.select{
+    height:30px;
+}
+.contenido h3, .contenido p{
+    color:rgb(51, 51, 51);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500px;
+}

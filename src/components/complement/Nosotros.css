@@ -1,6 +1,6 @@
 .back{
     width:100%;
-    height:100vh;
+    height:1200px;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -10,17 +10,28 @@
     width:100%;
     height:100%;
     background-color:rgba( 0,0,0,.5);
-    position: absolute;
+
+}
+.box{
+    width:50%;
+    flex-grow: 1;
+    margin-top: 50px;
+
+}
+.fix{
+    display: flex;
+    flex-wrap: wrap;
 }
 .tarjeta{
     background-color: white;
+    margin: 0 auto;
     width:450px;
     height:300px;
-    position: relative;
-    top:140px;
-    left: 130px;
+
     padding: 2% 5%;
+
 }
+
 .tarjeta h3{
     font-family: 'Open Sans', sans-serif;
     color:rgb(51, 51, 51);
@@ -30,4 +41,50 @@
     color:rgb(51, 51, 51);
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
+}
+.margencin{
+    margin-top: 60px;
+}
+.spa{
+    font-size: 30px;
+}
+@media(max-width: 769px){
+
+    .tarjeta{
+        width:350px;
+    }
+    .tarjeta h3{
+        font-size: 35px;
+    }
+    .dos{
+        display: none;
+    }
+
+}
+@media(max-width: 450px){
+
+    .back {
+        height:auto;
+
+    }
+    .tarjeta{
+
+        width:80%;
+        margin: 0 auto;
+        height:170px;
+        margin-bottom: 30px;
+    }
+    .tarjeta h3{
+        font-size: 25px;
+    }
+    .tarjeta p{
+
+        font-size: 16px;
+    }
+    .margencin{
+        margin-top: 10px;
+    }
+    .spa{
+        font-size:20px ;
+    }
 }
