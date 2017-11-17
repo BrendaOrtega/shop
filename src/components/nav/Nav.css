@@ -1,10 +1,13 @@
 .nav{
-    border-bottom: 1px solid #8E1C58;
-    background-color: #8E1C58;
+    border:transparent;
+    background-color: white;
     height:60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width:100%;
+    border-bottom: 1px solid#E0E0E0;
 }
 .nav img{
     width:100px;
@@ -16,10 +19,16 @@
     align-self: center;
     color:#8E1C58;
     background-color: white;
-    border:transparent;
+    border:1px solid #8E1C58;
     border-radius: 3px;
     height:35px;
     width:110px;
     font-weight:bolder;
     font-size: 13px;
+    cursor:pointer;
+    transition: all 1s ease;
+}
+.nav button:hover{
+    background-color: #8E1C58;
+    color: white;
 }

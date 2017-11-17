@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from '../../assets/shopyy.png';
+import logo from '../../assets/shopy.png';
+import {Link} from 'react-router-dom';
 
 export const NavDisplay = () => {
     return (
         <div className="nav">
-
-                <img src={logo} alt=""/>
-
+                <Link to="/">
+                    <img src={logo} alt=""/>
+                </Link>
                 <button>Pedir ahora</button>
 
         </div>

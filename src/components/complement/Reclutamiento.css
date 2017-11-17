@@ -57,6 +57,9 @@
     margin-top: 40px;
     text-align: center;
 }
+.centre img{
+    width:300px;
+}
 .requisitos p{
     font-family: 'Open Sans', sans-serif;
     color:rgb(51, 51, 51);
@@ -99,5 +102,11 @@
     }
     .request{
         text-align: center;
+    }
+    .requisitos p{
+        font-size: 18px;
+    }
+    .centre img{
+        width:150px;
     }
 }

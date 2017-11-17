@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Categorias.css';
 import FontAwesome from 'react-fontawesome';
 
-class Publi extends Component {
+class Categorias extends Component {
     render() {
         return (
             <div className=" space cat">
@@ -75,4 +75,4 @@ class Publi extends Component {
     }
 }
 
-export default Publi;
+export default Categorias;

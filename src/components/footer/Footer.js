@@ -26,9 +26,12 @@ class Footer extends Component {
                         </Link>
                     </div>
                     <div className="box_footer">
+                       <Link to="/info">
                         <p>Zonas de Servicio</p>
-                        <p>Tarifas</p>
+                       </Link>
+                    <Link to="/info">
                         <p>Preguntas frecuentes</p>
+                    </Link>
                     </div>
                 </div>
                 <hr className="line"/>

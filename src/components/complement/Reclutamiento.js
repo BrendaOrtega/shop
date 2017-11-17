@@ -39,7 +39,7 @@ class Reclutamiento extends Component {
                             <p className="option"><FontAwesome name='check' className="icon_about" size='1x'/> Mucha actitud</p>
                         </div>
                         <div className="requisitos centre">
-                            <img src="http://files.softicons.com/download/transport-icons/standard-road-icons-by-aha-soft/png/256x256/Moto%20courier.png" alt=""/>
+                            <img src="https://image.freepik.com/vector-gratis/repartidor-adorable-con-scooter-y-gorra_23-2147672987.jpg" alt=""/>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
-.extra{
+
+.extra, .extras{
     width:80%;
-    margin: 50px auto;
+    margin:0px auto;
+    padding-top: 50px;
 }
 .extra h3{
     font-size: 18px;
@@ -8,7 +10,7 @@
     font-family: 'Open Sans', sans-serif;
 
 }
-.extra h2{
+.extra h2, .extras h2{
     font-size: 25px;
     color:rgb(51, 51, 51);
     font-family: 'Open Sans', sans-serif;
@@ -21,14 +23,27 @@
     font-family: 'Open Sans', sans-serif;
 
 }
+.extras h3{
+    font-size: 18px;
+    color:rgb(51, 51, 51);
+    font-family: 'Open Sans', sans-serif;
+}
+.extras p{
+    font-size: 14px;
+    color:rgb(51, 51, 51);
+    font-family: 'Open Sans', sans-serif;
+}
 .flex{
     display: flex;
     flex-wrap: wrap;
 }
+.flex_box{
+    flex-grow: 1;
+    width:100px;
+}
 .marker{
     width:300px;
     flex-grow: 1;
-    width:;
 }
 .marker p{
     font-size: 12px;
@@ -38,4 +53,24 @@
 }
 .tabla{
     border:1px solid
+}
+.division{
+    height:1px;
+    border:none;
+    background-color: #E0E0E0;
+}
+.img_ask{
+    text-align: center;
+    opacity: .5;
+}
+.img_ask img{
+    width:200px;
+}
+@media(max-width: 423px){
+    .extra h3{
+        font-size: 15px;
+    }
+    .extra p{
+font-size: 10px;
+    }
 }

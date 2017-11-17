@@ -8,6 +8,7 @@ class Contacto extends Component {
         return (
             <div >
                 <Nav />
+
                 <ContactoDisplay />
             </div>
         );
