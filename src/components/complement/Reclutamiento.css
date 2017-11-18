@@ -89,6 +89,9 @@
     font-size: 18px;
     margin:0;
 }
+.footer a{
+    color: white;
+}
 @media(max-width: 428px){
     .encabezado{
         height:auto;

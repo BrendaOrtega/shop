@@ -3,4 +3,11 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    -moz-background-attachment: fixed;
+    -webkit-background-attachment:fixed;
+}
+@media(max-width: 428px){
+    .publi{
+        background-attachment: scroll;
+    }
 }
