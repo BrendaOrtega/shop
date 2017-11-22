@@ -5,6 +5,8 @@ import Nosotros from './components/complement/Nosotros';
 import Reclutamiento from './components/complement/Reclutamiento';
 import Contacto from './components/contacto/Contacto';
 import Extras from './components/complement/Extras';
+import LoginPage from "./components/login/LoginPage";
+import AdminPage from "./components/admin/AdminPage";
 
 export const Routes = () => (
     <div>
@@ -13,6 +15,8 @@ export const Routes = () => (
         <Route exact path="/deliver" component={Reclutamiento} />
         <Route exact path="/contacto" component={Contacto} />
         <Route path="/info" component={Extras} />
+        <Route exact path="/login" component={LoginPage}/>
+        <Route path="/admin" component={AdminPage}/>
     </div>
 
 );
