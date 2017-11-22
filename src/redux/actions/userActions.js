@@ -13,7 +13,7 @@ export function logInSuccess(user){
 export const logIn = (email, password) => (dispatch, getState) =>{
     return firebase.auth().signInWithEmailAndPassword(email, password)
         .then(u=>{
-            localStorage.setItem('user', JSON.stringify(u));
+            localStorage.setItem('shopy-user', JSON.stringify(u));
             dispatch(logInSuccess(u));
             return Promise.resolve(u)
         }).catch(error=>{
@@ -38,10 +38,10 @@ export function logOutSuccess(){
     }
 }
 export const logOut = () => (dispatch, getState) =>{
-    return firebase.auth.signOut()
+    return firebase.auth().signOut()
         .then(()=>{
             dispatch(logOutSuccess());
-            localStorage.removeItem("user");
+            localStorage.removeItem("shopy-user");
             return Promise.resolve()
         }).catch(e=>{
         return Promise.reject(e)
