@@ -7,7 +7,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu';
 import {IconButton, IconMenu, AppBar, MenuItem, FlatButton, Drawer} from 'material-ui';
 import * as userActions from '../../redux/actions/userActions';
 import './admin.css';
-import {Router, Route, Link} from 'react-router-dom';
+import {Router, Route, Link, Switch} from 'react-router-dom';
 import OrdersPage from "../orders/OrdersPage";
 import ProductsPage from "../products/ProductsPage";
 import OrdersDetailPage from "../orders/OrdersDetailPage";
@@ -66,9 +66,11 @@ class AdminPage extends Component {
                 </Drawer>
 
                     <div className={this.state.open?'admin-base open-admin':'admin-base closed-admin'}>
-                        <Route path={`/admin/products`} component={ProductsPage}/>
-                        <Route path={`/admin/orders`} component={OrdersPage}/>
-                        <Route path={`/admin/orders/detail`} component={OrdersDetailPage}/>
+                        <Switch>
+                            <Route path={`/admin/products`} component={ProductsPage}/>
+                            <Route path={`/admin/orders/:id`} component={OrdersDetailPage}/>
+                            <Route path={`/admin/orders`} component={OrdersPage}/>
+                        </Switch>
                     </div>
 
             </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import OrderProductsList from "./OrderProductsList";
 
-export const OrdersDetailComponent = (props) => {
+export const OrdersDetailComponent = ({order}) => {
     return (
         <div>
-            this is order's detail
+            <OrderProductsList order={order}/>
         </div>
     );
 };
