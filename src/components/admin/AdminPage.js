@@ -7,7 +7,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu';
 import {IconButton, IconMenu, AppBar, MenuItem, FlatButton, Drawer} from 'material-ui';
 import * as userActions from '../../redux/actions/userActions';
 import './admin.css';
-import {Router, Route} from 'react-router-dom';
+import {Router, Route, Link} from 'react-router-dom';
 import OrdersPage from "../orders/OrdersPage";
 import ProductsPage from "../products/ProductsPage";
 
@@ -60,13 +60,15 @@ class AdminPage extends Component {
                     iconElementRight={<Options logOut={this.logOut}/>}
                 />
                 <Drawer open={this.state.open} containerClassName="admin-drawer">
-                    <MenuItem>Menu Item</MenuItem>
-                    <MenuItem>Menu Item 2</MenuItem>
+                    <MenuItem containerElement={<Link to="/admin/products"/>}>Products</MenuItem>
+                    <MenuItem containerElement={<Link to="/admin/orders"/>}>Orders</MenuItem>
                 </Drawer>
 
-                    <Route path={`/admin/products`} component={ProductsPage}/>
-                    <Route path={`/admin/orders`} component={OrdersPage}/>
-                
+                    <div className={this.state.open?'admin-base open-admin':'admin-base closed-admin'}>
+                        <Route path={`/admin/products`} component={ProductsPage}/>
+                        <Route path={`/admin/orders`} component={OrdersPage}/>
+                    </div>
+
             </div>
         );
     }
@@ -74,7 +76,7 @@ class AdminPage extends Component {
 
 
 function mapStateToProps(state, ownProps) {
-    console.log(state.user);
+    console.log(state);
     return {
         user: state.user,
         fetched: state.user !== undefined,

@@ -1,4 +1,6 @@
 import firebase from '../../firebase';
+import {getProducts, removeProduct, updateProduct} from "./productActions";
+import {removeOrder, updateOrder} from "./orderActions";
 
 
 //LogIn Functions
@@ -59,7 +61,10 @@ export function checkIfUserSuccess(user){
 export const checkIfUser = () => (dispatch, getState) =>{
     return firebase.auth().onAuthStateChanged(user=>{
         if(user){
-            dispatch(checkIfUserSuccess(user))
+            dispatch(checkIfUserSuccess(user));
+            dispatch(getProducts());
+            dispatch(removeProduct());
+            dispatch(updateProduct());
         }else{
 
         }

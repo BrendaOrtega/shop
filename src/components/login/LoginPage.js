@@ -15,7 +15,7 @@ class LoginPage extends Component {
         let user = this.state.user;
         this.props.userActions.logIn(user.email, user.password)
             .then(r=>{
-                this.props.history.push('/admin')
+                this.props.history.push('/admin/orders')
             }).catch(e=>{
                 console.log(e)
         })

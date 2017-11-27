@@ -1,0 +1,23 @@
+.products-admin{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-y:scroll;
+}
+.products-admin::-webkit-scrollbar{
+    width: 0;
+}
+
+.add-product-button{
+    position: absolute;
+    bottom: 5%;
+    right:5%;
+}
+.table-body{
+    min-width:1000px;
+    position:relative;
+    max-width:1000px;
+    margin:0 auto;
+    margin-top:10px;
+
+}
