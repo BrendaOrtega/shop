@@ -11,19 +11,36 @@ export function saveProductSuccess(product){
     }
 }
 
-export const saveProduct = (product) => (dispatch, getState) => {
+export const saveProduct = (product, imagePreview) => (dispatch, getState) => {
     let updates = {};
     let key;
     if (product.id) key = product.id;
     else key = db.push().key;
     product['id'] = key;
-    updates[`dev/products/${key}`] = product;
-    return db.update(updates)
-        .then(r=>{
-            return Promise.resolve(r);
-        }).catch(e=>{
-            return Promise.reject(e);
-        })
+    if(imagePreview.file){
+        return firebase.storage().ref('products/'+key).put(imagePreview.file)
+            .then(r=>{
+                product['image']=r.downloadURL;
+                updates[`dev/products/${key}`] = product;
+                return db.update(updates)
+                    .then(r=>{
+                        return Promise.resolve(r);
+                    }).catch(e=>{
+                        return Promise.reject(e);
+                    })
+            }).catch(e=>{
+
+            })
+    }else{
+        updates[`dev/products/${key}`] = product;
+        return db.update(updates)
+            .then(r=>{
+                return Promise.resolve(r);
+            }).catch(e=>{
+                return Promise.reject(e);
+            })
+    }
+
 };
 //onchild changed
 export const updateProduct=()=>(dispatch, getState)=>{
@@ -44,13 +61,18 @@ export function deleteProductSuccess(product) {
 
 export const deleteProduct=(product)=>(dispatch, getState)=>{
     let updates = {};
-    updates[`dev/products/${product.id}`] = null;
 
-    return db.update(updates)
+    updates[`dev/products/${product.id}`] = null;
+    return firebase.storage().ref('products/'+product.id).delete()
         .then(r=>{
-            return Promise.resolve(r)
+            return db.update(updates)
+                .then(r=>{
+                    return Promise.resolve(r)
+                }).catch(e=>{
+                    return Promise.reject(e)
+                })
         }).catch(e=>{
-            return Promise.reject(e)
+
         })
 
 };

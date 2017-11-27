@@ -2,7 +2,7 @@ import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, TableFooter} from 'material-ui';
 import './products.css';
 
-const ProductList = ({products, fetched, deleteProduct}) => {
+const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
     if(!fetched) return(<p>Loading</p>);
     console.log(products);
     return (
@@ -11,7 +11,7 @@ const ProductList = ({products, fetched, deleteProduct}) => {
                 displaySelectAll={false}
                 adjustForCheckbox={false}>
                 <TableRow>
-                    <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
+                    <TableHeaderColumn colSpan="5" tooltip="Super Header" style={{textAlign: 'center'}}>
                         Super Header
                     </TableHeaderColumn>
                 </TableRow>
@@ -31,8 +31,8 @@ const ProductList = ({products, fetched, deleteProduct}) => {
                         <TableRowColumn>{p.id}</TableRowColumn>
                         <TableRowColumn>{p.name}</TableRowColumn>
                         <TableRowColumn>{p.presentation}</TableRowColumn>
-                        <TableRowColumn onClick={()=>deleteProduct(p)}>borrar</TableRowColumn>
-                        <TableRowColumn>editar</TableRowColumn>
+                        <TableRowColumn><p onClick={()=>deleteProduct(p)}>borrar</p></TableRowColumn>
+                        <TableRowColumn><p onClick={()=>updateProduct(p)}>editar</p></TableRowColumn>
 
                     </TableRow>
                 ))}

@@ -11,12 +11,36 @@ import './products.css';
 class ProductsPage extends Component {
     state = {
         open:false,
-        newProduct:{},
+        openConfirm:false,
+        confirm:false,
+        newProduct:{
+            price:0,
+            name:'',
+            presentation:'',
+            image:''
+        },
+        imagePreview:{
+            src: '',
+            file: ''
+        },
     };
 
+    uploadPhoto=(e)=>{
+        let {imagePreview} = this.state;
+        let file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload =  (e) => {
+            imagePreview.src = e.target.result;
+            imagePreview.file = file;
+            this.setState({imagePreview});
+        };
+
+        reader.readAsDataURL(file);
+    };
 
     handleOpen = () => {
-        this.setState({open: true});
+        this.setState({open: true, newProduct:{}});
     };
 
     handleClose = () => {
@@ -30,25 +54,48 @@ class ProductsPage extends Component {
 
     };
     saveProduct=()=>{
-        this.props.productActions.saveProduct(this.state.newProduct)
+        this.props.productActions.saveProduct(this.state.newProduct, this.state.imagePreview)
             .then(r=>{
                 this.handleClose();
-                this.setState({newProduct:{}});
+                this.setState({newProduct:{}, imagePreview:{}});
             }).catch(e=>{
 
         })
     };
-    deleteProduct=(product)=>{
-        this.props.productActions.deleteProduct(product)
-            .then(r=>{
-                console.log(r)
-            }).catch(e=>{
+    updateProduct=(product)=>{
+        this.setState({open:true, newProduct:product})
+    };
+    //delete a product
+    deleteProduct=()=>{
+            this.props.productActions.deleteProduct(this.state.toDelete)
+                .then(r=>{
+                    console.log(r)
+                }).catch(e=>{
                 console.log(e)
-        })
+            });
+        this.setState({toDelete:'', openConfirm:false});
+    };
+    openConfirm=(product)=>{
+        this.setState({openConfirm: true, toDelete:product});
+    };
+    closeConfirm=()=>{
+        this.setState({openConfirm: false, toDelete:''});
     };
 
 
     render() {
+        const confirmActions = [
+            <FlatButton
+                label="Cancel"
+                primary={true}
+                onClick={this.closeConfirm}
+            />,
+            <FlatButton
+                label="Submit"
+                primary={true}
+                keyboardFocused={true}
+                onClick={this.deleteProduct}
+            />,];
         const actions = [
             <FlatButton
                 label="Cancel"
@@ -67,7 +114,8 @@ class ProductsPage extends Component {
                <ProductList
                    products={this.props.products}
                     fetched={this.props.fetched}
-                deleteProduct={this.deleteProduct}/>
+                deleteProduct={this.openConfirm}
+                updateProduct={this.updateProduct}/>
 
                 <FloatingActionButton
                     onClick={this.handleOpen}
@@ -75,6 +123,15 @@ class ProductsPage extends Component {
                     <ContentAdd />
                 </FloatingActionButton>
                 <Dialog
+                    actions={confirmActions}
+                    modal={false}
+                    open={this.state.openConfirm}
+                    onRequestClose={this.closeConfirm}
+                >
+                    Discard draft?
+                </Dialog>
+                <Dialog
+                    autoScrollBodyContent={true}
                     title="Dialog With Actions"
                     actions={actions}
                     modal={false}
@@ -83,7 +140,9 @@ class ProductsPage extends Component {
                     contentStyle={{width:'30%'}}>
                     <ProductForm
                         handleText={this.handleText}
-                        newProduct={this.state.newProduct}/>
+                        newProduct={this.state.newProduct}
+                        imagePreview={this.state.imagePreview}
+                        uploadPhoto={this.uploadPhoto}/>
                 </Dialog>
             </div>
         );
