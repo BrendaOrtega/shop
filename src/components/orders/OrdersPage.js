@@ -43,7 +43,7 @@ class OrdersPage extends Component {
         const {orders} = this.props;
         return (
             <div>
-                <OrdersComponent orders={orders} />
+                <OrdersComponent orders={orders} history={this.props.history}/>
                 <FloatingActionButton
                     onClick={this.handleOpen}
                     className="add-product-button">

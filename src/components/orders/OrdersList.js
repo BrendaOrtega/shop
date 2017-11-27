@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, FlatButton} from 'material-ui';
 
-export const OrdersList = ({orders}) => {
+export const OrdersList = ({orders, history}) => {
     return (
         <div>
             <Table className={"table-body"}>
@@ -34,6 +34,9 @@ export const OrdersList = ({orders}) => {
                                     <FlatButton
                                         label="Detalle"
                                         secondary={true}
+                                        onClick={() => {
+                                            history.push(p.id)
+                                        }}
                                     />
                                 </TableRowColumn>
                                 {/*<TableRowColumn>editar</TableRowColumn>*/}
