@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn} from 'material-ui';
+import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, FlatButton} from 'material-ui';
 
 export const OrdersList = ({orders}) => {
     return (
@@ -30,13 +30,17 @@ export const OrdersList = ({orders}) => {
                                 <TableRowColumn>{p.id}</TableRowColumn>
                                 <TableRowColumn>{p.user}</TableRowColumn>
                                 <TableRowColumn>{p.total}</TableRowColumn>
-                                <TableRowColumn >detalle</TableRowColumn>
+                                <TableRowColumn >
+                                    <FlatButton
+                                        label="Detalle"
+                                        secondary={true}
+                                    />
+                                </TableRowColumn>
                                 {/*<TableRowColumn>editar</TableRowColumn>*/}
-
                             </TableRow>
                         )):
                             <TableRow>
-                                <TableRowColumn>No hay datos</TableRowColumn>
+                                <TableRowColumn colSpan="4">No hay datos</TableRowColumn>
                             </TableRow>
                     }
                 </TableBody>

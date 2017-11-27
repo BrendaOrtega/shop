@@ -5,9 +5,9 @@ const db = firebase.database().ref();
 
 export const GET_ORDERS_SUCCESS = 'GET_ORDERS_SUCCESS';
 
-export function getOrdersSuccess(orders){
+export function getOrdersSuccess(order){
     return{
-        type:GET_ORDERS_SUCCESS, orders
+        type:GET_ORDERS_SUCCESS, order
     }
 }
 

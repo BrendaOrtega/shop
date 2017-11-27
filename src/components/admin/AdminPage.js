@@ -10,6 +10,7 @@ import './admin.css';
 import {Router, Route, Link} from 'react-router-dom';
 import OrdersPage from "../orders/OrdersPage";
 import ProductsPage from "../products/ProductsPage";
+import OrdersDetailPage from "../orders/OrdersDetailPage";
 
 
 
@@ -67,6 +68,7 @@ class AdminPage extends Component {
                     <div className={this.state.open?'admin-base open-admin':'admin-base closed-admin'}>
                         <Route path={`/admin/products`} component={ProductsPage}/>
                         <Route path={`/admin/orders`} component={OrdersPage}/>
+                        <Route path={`/admin/orders/detail`} component={OrdersDetailPage}/>
                     </div>
 
             </div>

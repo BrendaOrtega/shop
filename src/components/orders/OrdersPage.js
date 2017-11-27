@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import {bindActionCreators} from 'redux';
+import * as orderActions from '../../redux/actions/orderActions';
+import {bindActionCreators} from 'redux';
 import {OrdersComponent} from "./OrdersComponent";
 import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -21,10 +22,10 @@ class OrdersPage extends Component {
         this.setState({open:false})
     };
     render() {
-        let orders = [
-            {id: '1', user: 'Miguel', total:345},
-            {id: '2', user: 'Miguel', total:1200}
-        ];
+        // let orders = [
+        //     {id: '1', user: 'Miguel', total:345},
+        //     {id: '2', user: 'Miguel', total:1200}
+        // ];
         const actionsForNewOrder= [
             <FlatButton
                 primary={true}
@@ -39,6 +40,7 @@ class OrdersPage extends Component {
             />
         ];
         const {open} = this.state;
+        const {orders} = this.props;
         return (
             <div>
                 <OrdersComponent orders={orders} />
@@ -67,13 +69,14 @@ class OrdersPage extends Component {
 
 function mapStateToProps(state, ownProps) {
     return {
-        state: state
+        orders: state.orders,
+        fetched: state.orders !== undefined
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        //actions: bindActionCreators(actions, dispatch)
+        orderActions: bindActionCreators(orderActions, dispatch)
     }
 }
 
