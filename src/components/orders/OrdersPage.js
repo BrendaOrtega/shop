@@ -12,11 +12,16 @@ class OrdersPage extends Component {
         super(props);
         this.state = {
             open:false,
-            value: '-KzzM6g07UkHN2UH1zcV'
+            value: '-KzzM6g07UkHN2UH1zcV',
+            search: ''
         };
     }
 
     handleChange = (event, index, value) => this.setState({value});
+
+    handleChangeTextField = (e) => {
+        this.setState({[e.target.name]:e.target.value});
+    };
 
     handleOpen = () => {
         this.setState({open:true})
@@ -43,16 +48,26 @@ class OrdersPage extends Component {
                 label="Añadir"
             />
         ];
-        const {open} = this.state;
+        const {open, search} = this.state;
         const {orders} = this.props;
+        const regEx = new RegExp(this.state.search,'i');
+        let items = this.props.orders.slice();
+        if(this.state.search){
+            items = items.filter(item => regEx.test(item.user)|| regEx.test(item.id));
+        }
         return (
             <div>
-                <OrdersComponent orders={orders} history={this.props.history}/>
-                <FloatingActionButton
-                    onClick={this.handleOpen}
-                    className="add-product-button">
-                    <ContentAdd />
-                </FloatingActionButton>
+                <OrdersComponent
+                    orders={items}
+                    history={this.props.history}
+                    search={search}
+                    handleSearch={this.handleChangeTextField}
+                />
+                {/*<FloatingActionButton*/}
+                    {/*onClick={this.handleOpen}*/}
+                    {/*className="add-product-button">*/}
+                    {/*<ContentAdd />*/}
+                {/*</FloatingActionButton>*/}
                 <Dialog
                     autoScrollBodyContent={true}
                     title="Nueva orden"
@@ -61,7 +76,10 @@ class OrdersPage extends Component {
                     open={open}
                     onRequestClose={this.handleClose}
                     contentStyle={{width:'50%'}}>
-                        <NewOrderForm value={this.state.value} products={this.props.products} onChange={this.handleChange}/>
+                        <NewOrderForm
+                            value={this.state.value}
+                            products={this.props.products}
+                            onChange={this.handleChange}/>
                 </Dialog>
             </div>
         );

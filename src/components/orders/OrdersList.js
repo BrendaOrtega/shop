@@ -1,5 +1,6 @@
 import React from 'react';
-import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, FlatButton} from 'material-ui';
+import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
+import Edit from 'material-ui/svg-icons/action/info';
 
 export const OrdersList = ({orders, history}) => {
     return (
@@ -9,14 +10,14 @@ export const OrdersList = ({orders, history}) => {
                     displaySelectAll={false}
                     adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="4" tooltip="Super Header" style={{textAlign: 'center'}}>
+                        <TableHeaderColumn colSpan="4" style={{textAlign: 'center'}}>
                             Lista de Ordenes
                         </TableHeaderColumn>
                     </TableRow>
                     <TableRow>
                         <TableHeaderColumn tooltip="Id">Id</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Usuario">Usuario</TableHeaderColumn>
-                        <TableHeaderColumn tooltip="Total">Presentation</TableHeaderColumn>
+                        <TableHeaderColumn tooltip="Total">Total</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Detalle" >Detalle</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
@@ -29,15 +30,13 @@ export const OrdersList = ({orders, history}) => {
                             <TableRow key={index}>
                                 <TableRowColumn>{p.id}</TableRowColumn>
                                 <TableRowColumn>{p.user}</TableRowColumn>
-                                <TableRowColumn>{p.total}</TableRowColumn>
+                                <TableRowColumn>${p.total}</TableRowColumn>
                                 <TableRowColumn >
-                                    <FlatButton
-                                        label="Detalle"
-                                        secondary={true}
-                                        onClick={() => {
-                                            history.push('/admin/orders/'+p.id)
-                                        }}
-                                    />
+                                    <IconButton onClick={() => {
+                                        history.push('/admin/orders/'+p.id)
+                                    }}>
+                                        <Edit/>
+                                    </IconButton>
                                 </TableRowColumn>
                                 {/*<TableRowColumn>editar</TableRowColumn>*/}
                             </TableRow>
@@ -47,13 +46,13 @@ export const OrdersList = ({orders, history}) => {
                             </TableRow>
                     }
                 </TableBody>
-                <TableFooter>
-                    <TableRow>
-                        <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-                            Super Footer
-                        </TableRowColumn>
-                    </TableRow>
-                </TableFooter>
+                {/*<TableFooter>*/}
+                    {/*<TableRow>*/}
+                        {/*<TableRowColumn colSpan="3" style={{textAlign: 'center'}}>*/}
+                            {/*Super Footer*/}
+                        {/*</TableRowColumn>*/}
+                    {/*</TableRow>*/}
+                {/*</TableFooter>*/}
             </Table>
         </div>
     );
