@@ -145,6 +145,7 @@ class ProductsPage extends Component {
                         className="search-text"
                         hintText="Busca..."
                         name="search"
+                        value={this.state.search}
                         onChange={this.handleSearch}/>
                 </div>
                <ProductList

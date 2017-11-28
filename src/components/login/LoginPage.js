@@ -37,6 +37,9 @@ class LoginPage extends Component {
                         <h2>Inicia Sesión</h2>
                         <form action="">
                             <TextField
+                                floatingLabelFocusStyle={{color:'white'}}
+                                underlineFocusStyle={{borderColor:'white'}}
+                                floatingLabelStyle={{color:'white'}}
                                 onChange={this.handleText}
                                 name={'email'}
                                 fullWidth={true}
@@ -44,6 +47,9 @@ class LoginPage extends Component {
                                 floatingLabelText={'Email'}/>
                             <br/>
                             <TextField
+                                floatingLabelFocusStyle={{color:'white'}}
+                                underlineFocusStyle={{borderColor:'white'}}
+                                floatingLabelStyle={{color:'white'}}
                                 onChange={this.handleText}
                                 name={'password'}
                                 fullWidth={true}

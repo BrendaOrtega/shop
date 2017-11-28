@@ -5,6 +5,7 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import Edit from 'material-ui/svg-icons/editor/mode-edit';
 
 const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
+
     if(!fetched) return(<p>Loading</p>);
     console.log(products);
     return (
@@ -13,7 +14,7 @@ const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
                 displaySelectAll={false}
                 adjustForCheckbox={false}>
                 <TableRow>
-                    <TableHeaderColumn colSpan="5" tooltip="Super Header" style={{textAlign: 'center'}}>
+                    <TableHeaderColumn colSpan="5" style={{textAlign: 'center'}}>
                         Products List
                     </TableHeaderColumn>
                 </TableRow>
@@ -50,7 +51,7 @@ const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
             <TableFooter>
                 <TableRow>
                     <TableRowColumn colSpan="5" style={{textAlign: 'center'}}>
-                        Super Footer
+
                     </TableRowColumn>
                 </TableRow>
             </TableFooter>

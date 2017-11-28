@@ -9,6 +9,7 @@ import {configureStore} from "./redux/store/configureStore";
 import {MuiThemeProvider} from "material-ui";
 import {Provider} from 'react-redux';
 import {checkIfUser} from "./redux/actions/userActions";
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 
 
@@ -24,9 +25,18 @@ const WithRouter = () => (
 
 
 );
+const muiTheme = getMuiTheme({
+    palette: {
+        //textColor: '#8e1c58',
+        primary1Color:'#8e1c58'
+    },
+    appBar: {
+        height: 50,
+    },
+});
 
 const Main = ()=>(
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
         <Provider store={store}>
             <WithRouter/>
         </Provider>

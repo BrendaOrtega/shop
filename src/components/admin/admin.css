@@ -1,5 +1,5 @@
 .admin-drawer{
-    margin-top: 64px;
+    margin-top: 50px;
 }
 .admin-base{
     height: 90vh;
@@ -12,4 +12,7 @@
 .closed-admin{
     padding:1%;
     transition:all .3s ease;
+}
+.admin-bar{
+    background: #8e1c58;
 }
