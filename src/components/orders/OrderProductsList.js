@@ -1,14 +1,13 @@
 import React from 'react';
-import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, FlatButton} from 'material-ui';
+import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, Avatar} from 'material-ui';
 
 const OrderProductsList = ({order, products}) => {
     let productsLocal = [];
-    console.log(order.products);
-    console.log(products);
-    for (let prop in order.products){
-        productsLocal.push(order.products[prop]);
+    if(order.products) {
+        for (let prop in order.products) {
+            productsLocal.push(order.products[prop]);
+        }
     }
-    console.log(productsLocal);
     return (
         <div>
             <Table className={"table-body"}>
@@ -16,12 +15,13 @@ const OrderProductsList = ({order, products}) => {
                     displaySelectAll={false}
                     adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="4" style={{textAlign: 'center'}}>
-                            Super Header
+                        <TableHeaderColumn colSpan="5" style={{textAlign: 'center'}}>
+                            Detalle
                         </TableHeaderColumn>
                     </TableRow>
                     <TableRow>
-                        <TableHeaderColumn tooltip="ID">ID</TableHeaderColumn>
+                        <TableHeaderColumn tooltip="Imagen">Imagen</TableHeaderColumn>
+                        <TableHeaderColumn tooltip="Presentación">Presentación</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Cantidad">Cantidad</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Nombre">Nombre</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Subtotal" >Subtotal</TableHeaderColumn>
@@ -30,19 +30,29 @@ const OrderProductsList = ({order, products}) => {
                 <TableBody
                     displayRowCheckbox={false}>
 
-                    {productsLocal.map( (p, index) => {
-                        let productName = products.filter((product, key) => {
+                    { productsLocal.length > 0 ?
+                        productsLocal.map( (p, index) => {
+                        let thisProduct = products.filter((product, key) => {
                             return product.id === p.product;
-                        })[0].name;
+                        })[0];
+                        const productName = thisProduct.name;
+                        const content = thisProduct.presentation;
+                        const src = thisProduct.image;
                         return(
                             <TableRow key={index}>
-                                <TableRowColumn>{p.product}</TableRowColumn>
+                                <TableRowColumn><Avatar src={src}/></TableRowColumn>
+                                <TableRowColumn>{content}</TableRowColumn>
                                 <TableRowColumn>{p.amount}</TableRowColumn>
                                 <TableRowColumn>{productName}</TableRowColumn>
-                                <TableRowColumn>{p.subtotal}</TableRowColumn>
+                                <TableRowColumn>${p.subtotal}</TableRowColumn>
                             </TableRow>
                         )
-                    })}
+                        }) :
+                        <TableRow>
+                            <TableRowColumn>No hay productos</TableRowColumn>
+                        </TableRow>
+
+                    }
                 </TableBody>
                 <TableFooter>
                     <TableRow>
