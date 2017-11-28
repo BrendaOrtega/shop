@@ -1,11 +1,14 @@
 import React from 'react';
 import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, FlatButton} from 'material-ui';
 
-const OrderProductsList = ({order}) => {
-    let products = [];
+const OrderProductsList = ({order, products}) => {
+    let productsLocal = [];
+    console.log(order.products);
+    console.log(products);
     for (let prop in order.products){
-        products.push(order.products[prop]);
+        productsLocal.push(order.products[prop]);
     }
+    console.log(productsLocal);
     return (
         <div>
             <Table className={"table-body"}>
@@ -27,14 +30,19 @@ const OrderProductsList = ({order}) => {
                 <TableBody
                     displayRowCheckbox={false}>
 
-                    {products.map( (p, index) => (
-                        <TableRow key={index}>
-                            <TableRowColumn>{p.product}</TableRowColumn>
-                            <TableRowColumn>{p.amount}</TableRowColumn>
-                            <TableRowColumn>{p.name}</TableRowColumn>
-                            <TableRowColumn>{p.subtotal}</TableRowColumn>
-                        </TableRow>
-                    ))}
+                    {productsLocal.map( (p, index) => {
+                        let productName = products.filter((product, key) => {
+                            return product.id === p.product;
+                        })[0].name;
+                        return(
+                            <TableRow key={index}>
+                                <TableRowColumn>{p.product}</TableRowColumn>
+                                <TableRowColumn>{p.amount}</TableRowColumn>
+                                <TableRowColumn>{productName}</TableRowColumn>
+                                <TableRowColumn>{p.subtotal}</TableRowColumn>
+                            </TableRow>
+                        )
+                    })}
                 </TableBody>
                 <TableFooter>
                     <TableRow>

@@ -5,14 +5,18 @@ import {bindActionCreators} from 'redux';
 import {OrdersComponent} from "./OrdersComponent";
 import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import NewOrderForm from "./NewOrderForm";
 
 class OrdersPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            open:false
+            open:false,
+            value: '-KzzM6g07UkHN2UH1zcV'
         };
     }
+
+    handleChange = (event, index, value) => this.setState({value});
 
     handleOpen = () => {
         this.setState({open:true})
@@ -56,10 +60,8 @@ class OrdersPage extends Component {
                     modal={false}
                     open={open}
                     onRequestClose={this.handleClose}
-                    contentStyle={{width:'30%'}}>
-                    {/*<ProductForm*/}
-                        {/*handleText={this.handleText}*/}
-                        {/*newProduct={this.state.newProduct}/>*/}
+                    contentStyle={{width:'50%'}}>
+                        <NewOrderForm value={this.state.value} products={this.props.products} onChange={this.handleChange}/>
                 </Dialog>
             </div>
         );
@@ -70,7 +72,8 @@ class OrdersPage extends Component {
 function mapStateToProps(state, ownProps) {
     return {
         orders: state.orders,
-        fetched: state.orders !== undefined
+        fetched: state.orders !== undefined,
+        products: state.products
     }
 }
 

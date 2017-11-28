@@ -12,23 +12,23 @@ class OrdersDetailPage extends Component {
     }
 
     render() {
-        const {order, orderFound} = this.props;
+        const {order, orderFound, products} = this.props;
         console.log(order);
-        if(orderFound){
-            // console.log(order.products);
-            // for(let id in order.products){
-            //     let product =  products.filter( (product, key) => {
-            //         return product.id === id;
-            //     })[0];
-            //     productsTemp.push(product);
-            // }
-            console.log(order.products);
-        }
+        // let names = [];
+        // if(orderFound){
+        //     for(let p of order.products){
+        //         let product =  products.filter( (product, key) => {
+        //             return product.id === p.id;
+        //         })[0];
+        //         names.push(product.name);
+        //     }
+        //     console.log(order.products);
+        // }
         return (
             <div>
                 {
                     orderFound &&
-                    <OrdersDetailComponent order={order} />
+                    <OrdersDetailComponent order={order} products={products}/>
                 }
                 {/*<OrdersDetailComponent order={order}/>*/}
             </div>
