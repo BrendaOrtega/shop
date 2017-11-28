@@ -18,12 +18,26 @@ class ProductsPage extends Component {
             price:0,
             name:'',
             presentation:'',
-            image:''
+            image:'',
+            in_offer:false,
+            category:'',
+            offer_price:0,
         },
         imagePreview:{
             src: '',
             file: ''
         },
+    };
+    handleToggle=(e,v)=>{
+        let {newProduct} = this.state;
+        newProduct['in_offer'] = v;
+        this.setState({newProduct});
+
+    };
+    handleChange=(e, i, cat)=>{
+        let {newProduct} = this.state;
+        newProduct['category'] = cat;
+        this.setState({newProduct});
     };
 
     handleSearch=(e)=>{
@@ -56,6 +70,7 @@ class ProductsPage extends Component {
         let field = e.target.name;
         newProduct[field] = e.target.value;
         this.setState({newProduct});
+        console.log(newProduct)
 
     };
     saveProduct=(e)=>{
@@ -133,10 +148,10 @@ class ProductsPage extends Component {
                         onChange={this.handleSearch}/>
                 </div>
                <ProductList
-                   products={items}
+                    products={items}
                     fetched={this.props.fetched}
-                deleteProduct={this.openConfirm}
-                updateProduct={this.updateProduct}/>
+                    deleteProduct={this.openConfirm}
+                    updateProduct={this.updateProduct}/>
 
                 <FloatingActionButton
                     onClick={this.handleOpen}
@@ -149,11 +164,11 @@ class ProductsPage extends Component {
                     open={this.state.openConfirm}
                     onRequestClose={this.closeConfirm}
                 >
-                    Discard draft?
+                    ¿Seguro que deseas borrar?
                 </Dialog>
                 <Dialog
                     autoScrollBodyContent={true}
-                    title="Dialog With Actions"
+                    title={this.state.newProduct.name?'Editar Producto':'Nuevo Producto'}
                     actions={actions}
                     modal={false}
                     open={this.state.open}
@@ -165,6 +180,8 @@ class ProductsPage extends Component {
                         imagePreview={this.state.imagePreview}
                         uploadPhoto={this.uploadPhoto}
                         onSubmit={this.saveProduct}
+                        handleChange={this.handleChange}
+                        handleToggle={this.handleToggle}
                     />
                 </Dialog>
             </div>
