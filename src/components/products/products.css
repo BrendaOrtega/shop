@@ -1,4 +1,5 @@
 .products-admin{
+    box-sizing: border-box;
     position: relative;
     height: 100%;
     width: 100%;
@@ -22,6 +23,14 @@
 
 }
 .form-photo{
+    display: flex;
+    justify-content: center;
+}
+.search-text{
+    width: 80%;
+}
+.search{
+    width: 100%;
     display: flex;
     justify-content: center;
 }

@@ -9,10 +9,12 @@ function onClick() {
 }
 
 
-const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview}) => {
+const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmit}) => {
     return (
-        <div>
+
+        <form>
             <TextField
+                required
                 fullWidth={true}
                 onChange={handleText}
                 floatingLabelText="Product Name"
@@ -21,6 +23,7 @@ const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview}) => {
                 value={newProduct.name}/>
             <br/>
             <TextField
+                required
                 fullWidth={true}
                 onChange={handleText}
                 floatingLabelText="Presentation"
@@ -29,6 +32,7 @@ const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview}) => {
                 value={newProduct.presentation}/>
             <br/>
             <TextField
+                required
                 type='number'
                 fullWidth={true}
                 onChange={handleText}
@@ -36,14 +40,14 @@ const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview}) => {
                 floatingLabelFixed={true}
                 name="price"
                 value={newProduct.price}/>
-            <input ref={input => elInput = input } type="file" hidden onChange={uploadPhoto}/>
+            <input ref={input => elInput = input } type="file" hidden onChange={uploadPhoto} required name="image"/>
             <div className="form-photo">
                 <Avatar
                     src={newProduct.image?newProduct.image:imagePreview.src}
                     size={150}
                     onClick={onClick}/>
             </div>
-        </div>
+        </form>
     )
 };
 
