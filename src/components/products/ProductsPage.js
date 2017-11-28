@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ProductList from "./ProductList";
-import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
+import {FloatingActionButton, Dialog, FlatButton, TextField} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ProductForm from "./ProductForm";
 import * as productActions from '../../redux/actions/productActions';
@@ -13,6 +13,7 @@ class ProductsPage extends Component {
         open:false,
         openConfirm:false,
         confirm:false,
+        search:'',
         newProduct:{
             price:0,
             name:'',
@@ -23,6 +24,10 @@ class ProductsPage extends Component {
             src: '',
             file: ''
         },
+    };
+
+    handleSearch=(e)=>{
+        this.setState({search:e.target.value})
     };
 
     uploadPhoto=(e)=>{
@@ -53,14 +58,15 @@ class ProductsPage extends Component {
         this.setState({newProduct});
 
     };
-    saveProduct=()=>{
+    saveProduct=(e)=>{
+        e.preventDefault();
+
         this.props.productActions.saveProduct(this.state.newProduct, this.state.imagePreview)
             .then(r=>{
                 this.handleClose();
                 this.setState({newProduct:{}, imagePreview:{}});
             }).catch(e=>{
-
-        })
+            })
     };
     updateProduct=(product)=>{
         this.setState({open:true, newProduct:product})
@@ -84,6 +90,11 @@ class ProductsPage extends Component {
 
 
     render() {
+        const regEx = new RegExp(this.state.search,'i');
+        let items = this.props.products.slice();
+        if(this.state.search){
+            items = items.filter(item => regEx.test(item.name)|| regEx.test(item.id));
+        }
         const confirmActions = [
             <FlatButton
                 label="Cancel"
@@ -104,6 +115,8 @@ class ProductsPage extends Component {
             />,
             <FlatButton
                 label="Submit"
+                form="newProduct"
+                type="submit"
                 primary={true}
                 keyboardFocused={true}
                 onClick={this.saveProduct}
@@ -111,8 +124,16 @@ class ProductsPage extends Component {
         ];
         return (
             <div className="products-admin">
+                <div className="search">
+                    <TextField
+                        style={{width:'50%'}}
+                        className="search-text"
+                        hintText="Busca..."
+                        name="search"
+                        onChange={this.handleSearch}/>
+                </div>
                <ProductList
-                   products={this.props.products}
+                   products={items}
                     fetched={this.props.fetched}
                 deleteProduct={this.openConfirm}
                 updateProduct={this.updateProduct}/>
@@ -142,7 +163,9 @@ class ProductsPage extends Component {
                         handleText={this.handleText}
                         newProduct={this.state.newProduct}
                         imagePreview={this.state.imagePreview}
-                        uploadPhoto={this.uploadPhoto}/>
+                        uploadPhoto={this.uploadPhoto}
+                        onSubmit={this.saveProduct}
+                    />
                 </Dialog>
             </div>
         );

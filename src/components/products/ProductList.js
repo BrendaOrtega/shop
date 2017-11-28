@@ -1,6 +1,8 @@
 import React from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, TableFooter} from 'material-ui';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, TableFooter, IconButton} from 'material-ui';
 import './products.css';
+import Delete from 'material-ui/svg-icons/action/delete';
+import Edit from 'material-ui/svg-icons/editor/mode-edit';
 
 const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
     if(!fetched) return(<p>Loading</p>);
@@ -12,7 +14,7 @@ const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
                 adjustForCheckbox={false}>
                 <TableRow>
                     <TableHeaderColumn colSpan="5" tooltip="Super Header" style={{textAlign: 'center'}}>
-                        Super Header
+                        Products List
                     </TableHeaderColumn>
                 </TableRow>
                 <TableRow>
@@ -31,15 +33,23 @@ const ProductList = ({products, fetched, deleteProduct, updateProduct}) => {
                         <TableRowColumn>{p.id}</TableRowColumn>
                         <TableRowColumn>{p.name}</TableRowColumn>
                         <TableRowColumn>{p.presentation}</TableRowColumn>
-                        <TableRowColumn><p onClick={()=>deleteProduct(p)}>borrar</p></TableRowColumn>
-                        <TableRowColumn><p onClick={()=>updateProduct(p)}>editar</p></TableRowColumn>
+                        <TableRowColumn>
+                            <IconButton onClick={()=>deleteProduct(p)}>
+                                <Delete/>
+                            </IconButton>
+                        </TableRowColumn>
+                        <TableRowColumn>
+                            <IconButton onClick={()=>updateProduct(p)}>
+                                <Edit/>
+                            </IconButton>
+                        </TableRowColumn>
 
                     </TableRow>
                 ))}
             </TableBody>
             <TableFooter>
                 <TableRow>
-                    <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
+                    <TableRowColumn colSpan="5" style={{textAlign: 'center'}}>
                         Super Footer
                     </TableRowColumn>
                 </TableRow>
