@@ -16,7 +16,7 @@ const OrderProductsList = ({order, products}) => {
                     displaySelectAll={false}
                     adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="4" tooltip="Super Header" style={{textAlign: 'center'}}>
+                        <TableHeaderColumn colSpan="4" style={{textAlign: 'center'}}>
                             Super Header
                         </TableHeaderColumn>
                     </TableRow>

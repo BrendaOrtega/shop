@@ -48,11 +48,11 @@ class OrdersPage extends Component {
         return (
             <div>
                 <OrdersComponent orders={orders} history={this.props.history}/>
-                <FloatingActionButton
-                    onClick={this.handleOpen}
-                    className="add-product-button">
-                    <ContentAdd />
-                </FloatingActionButton>
+                {/*<FloatingActionButton*/}
+                    {/*onClick={this.handleOpen}*/}
+                    {/*className="add-product-button">*/}
+                    {/*<ContentAdd />*/}
+                {/*</FloatingActionButton>*/}
                 <Dialog
                     autoScrollBodyContent={true}
                     title="Nueva orden"
