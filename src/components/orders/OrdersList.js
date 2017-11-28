@@ -35,7 +35,7 @@ export const OrdersList = ({orders, history}) => {
                                         label="Detalle"
                                         secondary={true}
                                         onClick={() => {
-                                            history.push(p.id)
+                                            history.push('/admin/orders/'+p.id)
                                         }}
                                     />
                                 </TableRowColumn>
