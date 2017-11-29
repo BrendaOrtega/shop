@@ -3,14 +3,15 @@
 }
 .admin-base{
     height: 90vh;
+    padding-top: 60px;
 }
 .open-admin{
-    padding:1% 1% 1% 18%;
+    padding:60px 1% 1% 18%;
     transition:all .3s ease;
 
 }
 .closed-admin{
-    padding:1%;
+    padding:60px 1%;
     transition:all .3s ease;
 }
 .admin-bar{

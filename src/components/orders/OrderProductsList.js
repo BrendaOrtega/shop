@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, Avatar, FloatingActionButton} from 'material-ui';
 import Print from 'material-ui/svg-icons/action/print';
-
+import '../products/products.css';
 import './ticket.css';
 import Ticket from "./Ticket";
 
@@ -90,7 +90,11 @@ const OrderProductsList = ({order, products, print, updateCheck}) => {
                     </TableRow>
                 </TableFooter>
             </Table>
-            {/*<Ticket/>*/}
+
+            <div className="printable">
+                <Ticket order={order} products={productsLocal} allProducts={products}/>
+            </div>
+
             <FloatingActionButton className="add-product-button" onClick={print}>
                 <Print />
             </FloatingActionButton>

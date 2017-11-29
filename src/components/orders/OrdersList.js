@@ -1,8 +1,12 @@
 import React from 'react';
 import {Table, TableHeader, TableBody,/* TableFooter,*/ TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
 import Edit from 'material-ui/svg-icons/action/info';
+<<<<<<< HEAD
 import CheckedIcon from 'material-ui/svg-icons/action/shopping-cart';
 import UnCheckedIcon from 'material-ui/svg-icons/action/remove-shopping-cart';
+=======
+import '../products/products.css';
+>>>>>>> 875465e078f457bff04bfede91513c4c1dd1b006
 
 export const OrdersList = ({orders, history, color}) => {
     return (

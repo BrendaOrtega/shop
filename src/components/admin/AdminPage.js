@@ -56,7 +56,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <AppBar
-                    
+                    style={{position:'fixed'}}
                     title="Admin Panel"
                     iconElementLeft={<IconButton onClick={this.handleOpen}>{this.state.open?<NavigationClose />:<Menu />}</IconButton>}
                     iconElementRight={<Options logOut={this.logOut}/>}
