@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
+import {Table, TableHeader, TableBody,/* TableFooter,*/ TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
 import Edit from 'material-ui/svg-icons/action/info';
 import '../products/products.css';
 
@@ -19,6 +19,7 @@ export const OrdersList = ({orders, history}) => {
                         <TableHeaderColumn tooltip="Id">Id</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Usuario">Usuario</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Total">Total</TableHeaderColumn>
+                        <TableHeaderColumn tooltip="Entregado">Entregado</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Detalle" >Detalle</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
@@ -32,6 +33,7 @@ export const OrdersList = ({orders, history}) => {
                                 <TableRowColumn>{p.id}</TableRowColumn>
                                 <TableRowColumn>{p.user}</TableRowColumn>
                                 <TableRowColumn>${p.total}</TableRowColumn>
+                                <TableRowColumn>{p.isDelivered ? 'Sí' : 'No'}</TableRowColumn>
                                 <TableRowColumn >
                                     <IconButton onClick={() => {
                                         history.push('/admin/orders/'+p.id)

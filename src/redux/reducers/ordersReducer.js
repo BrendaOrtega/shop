@@ -1,13 +1,23 @@
-import {DELETE_ORDER_SUCCESS, GET_ORDERS_SUCCESS} from "../actions/orderActions";
+import {DELETE_ORDER_SUCCESS, GET_ORDERS_SUCCESS, UPDATE_ORDER_SUCCESS} from "../actions/orderActions";
 
 export function ordersReducer(state=[], action){
+    let {order} = action;
     switch(action.type){
         case GET_ORDERS_SUCCESS:
-
+            console.log('Se ejecuta esto');
             return [...state, action.order];
         case DELETE_ORDER_SUCCESS:
-            let product = action.order;
-            return state.filter(p=>(p.id!==product.id));
+            return [... state.filter(o=>(o.id!==order.id))];
+        case UPDATE_ORDER_SUCCESS:
+            console.log(state);
+            console.log(order);
+            return [ ...state.map( o => {
+                if( o.id === order.id){
+                    return order;
+                }
+                return o;
+            })];
+
         // case SAVE_PRODUCT_SUCCESS:
         //     let list = state.filter(p=>(p.id!==action.product.id));
         //     let newP = action.product;

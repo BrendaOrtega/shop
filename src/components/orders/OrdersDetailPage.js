@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {OrdersDetailComponent} from "./OrdersDetailComponent";
 //import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as ordersActions from '../../redux/actions/orderActions';
+import {bindActionCreators} from "redux";
 
 class OrdersDetailPage extends Component {
     constructor(props) {
@@ -14,6 +16,11 @@ class OrdersDetailPage extends Component {
         window.print();
     };
 
+    updateCheck = () => {
+        let orderUpdated = Object.assign({},this.props.order);
+        orderUpdated.isDelivered = !orderUpdated.isDelivered;
+        this.props.ordersActions.saveOrder(orderUpdated);
+    };
     render() {
         const {order, orderFound, products} = this.props;
         console.log(order);
@@ -31,7 +38,7 @@ class OrdersDetailPage extends Component {
             <div>
                 {
                     orderFound &&
-                    <OrdersDetailComponent order={order} products={products} print={this.print}/>
+                    <OrdersDetailComponent order={order} products={products} print={this.print} updateCheck={this.updateCheck}/>
                 }
                 {/*<OrdersDetailComponent order={order}/>*/}
             </div>
@@ -53,7 +60,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        ordersActions: bindActionCreators(ordersActions, dispatch)
     }
 }
 

@@ -14,7 +14,7 @@ export function getOrdersSuccess(order){
 export const getOrders=()=>(dispatch, getState)=>{
   return db.child('/dev/orders').on('child_added', snap=>{
       dispatch(getOrdersSuccess(snap.val()))
-  })
+  });
 };
 
 //save Orders
@@ -43,9 +43,19 @@ export const saveOrder=(order)=>(dispatch, getState)=>{
 
 };
 //onchild changed
+
+export const UPDATE_ORDER_SUCCESS =  'UPDATE_ORDER_SUCCESS';
+
+export function updateOrderSuccess(order) {
+    return {
+        type: UPDATE_ORDER_SUCCESS,
+        order
+    }
+}
+
 export const updateOrder=()=>(dispatch, getState)=>{
     return db.child('/dev/orders').on('child_changed', snap=>{
-        dispatch(getOrdersSuccess(snap.val()))
+        dispatch(updateOrderSuccess(snap.val()))
     })
 };
 //onchild removed

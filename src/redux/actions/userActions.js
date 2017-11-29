@@ -64,6 +64,8 @@ export const checkIfUser = () => (dispatch, getState) =>{
             dispatch(checkIfUserSuccess(user));
             dispatch(getProducts());
             dispatch(getOrders());
+            dispatch(updateOrder());
+            dispatch(removeOrder());
             dispatch(removeProduct());
             dispatch(updateProduct());
         }else{
