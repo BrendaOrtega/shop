@@ -17,7 +17,7 @@ const styles = {
     },
 };
 
-const OrderProductsList = ({order, products, print}) => {
+const OrderProductsList = ({order, products, print, updateCheck}) => {
     let productsLocal = [];
     if(order.products) {
         for (let prop in order.products) {
@@ -42,6 +42,8 @@ const OrderProductsList = ({order, products, print}) => {
                                 //className="table-body"
                                 // checkedIcon={<CheckedIcon />}
                                 // uncheckedIcon={<UnCheckedIcon />}
+                                checked={order.isDelivered}
+                                onCheck={updateCheck}
                                 label="Entregado"
                                 style={styles.checkbox}
                             />
