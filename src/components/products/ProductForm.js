@@ -22,16 +22,14 @@ const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmi
                 value={newProduct.category}
                 onChange={handleChange}
             >
-                <MenuItem value={'lacteos'} primaryText="Lacteos" />
+                <MenuItem value={'abarrotes'} primaryText="Abarrotes" />
+                <MenuItem value={'cremeria'} primaryText="Cremería" />
+                <MenuItem value={'desechables'} primaryText="Desechables" />
+                <MenuItem value={'frutos-secos-y-semillas'} primaryText="Frutos Secos" />
                 <MenuItem value={'frutas-y-verduras'} primaryText="Frutas y Verduras" />
-                <MenuItem value={'carnes-y-pescados'} primaryText="Carnes y Pescados" />
-                <MenuItem value={'panaderia'} primaryText="Panadería" />
-                <MenuItem value={'jugos'} primaryText="Jugos" />
-                <MenuItem value={'vinos-y.licores'} primaryText="Vinos y Licores" />
-                <MenuItem value={'higiene'} primaryText="Higiene" />
-                <MenuItem value={'farmacia'} primaryText="Farmacia" />
-                <MenuItem value={'bebes'} primaryText="Bebes" />
-                <MenuItem value={'congelados'} primaryText="Congelados" />
+                <MenuItem value={'productos-de-limpieza'} primaryText="Limpieza" />
+                <MenuItem value={'materias-primas'} primaryText="Materias Primas" />
+
             </SelectField>
             <br/>
             <TextField

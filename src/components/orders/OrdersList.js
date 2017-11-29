@@ -1,6 +1,7 @@
 import React from 'react';
 import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
 import Edit from 'material-ui/svg-icons/action/info';
+import '../products/products.css';
 
 export const OrdersList = ({orders, history}) => {
     return (

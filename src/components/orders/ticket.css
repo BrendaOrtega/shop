@@ -4,15 +4,14 @@
     right:5%;
 }
 .ticket{
-    max-width: 320px;
-    min-width: 320px;
+    max-width: 600px;
+    min-width: 600px;
     padding: 1%;
     border: 1px solid #000000;
     font-size: .8em;
 }
 .printable{
-
-
+    visibility: hidden;
 }
 
 
