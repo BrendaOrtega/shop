@@ -3,8 +3,12 @@ import {connect} from 'react-redux';
 import * as orderActions from '../../redux/actions/orderActions';
 import {bindActionCreators} from 'redux';
 import {OrdersComponent} from "./OrdersComponent";
-import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import {
+    //FloatingActionButton,
+    Dialog,
+    FlatButton
+} from 'material-ui';
+//import ContentAdd from 'material-ui/svg-icons/content/add';
 import NewOrderForm from "./NewOrderForm";
 
 class OrdersPage extends Component {
@@ -51,7 +55,7 @@ class OrdersPage extends Component {
         const {open, search} = this.state;
         const {orders} = this.props;
         const regEx = new RegExp(this.state.search,'i');
-        let items = this.props.orders.slice();
+        let items = orders.slice();
         if(this.state.search){
             items = items.filter(item => regEx.test(item.user)|| regEx.test(item.id));
         }

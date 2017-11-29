@@ -4,6 +4,19 @@ import Print from 'material-ui/svg-icons/action/print';
 
 import './ticket.css';
 import Ticket from "./Ticket";
+
+// import CheckedIcon from 'material-ui/svg-icons/action/shopping-cart';
+//import UnCheckedIcon from 'material-ui/svg-icons/action/remove-shopping-cart';
+import {Checkbox} from 'material-ui';
+const styles = {
+    block: {
+        maxWidth: 250,
+    },
+    checkbox: {
+        marginBottom: 16,
+    },
+};
+
 const OrderProductsList = ({order, products, print}) => {
     let productsLocal = [];
     if(order.products) {
@@ -18,8 +31,20 @@ const OrderProductsList = ({order, products, print}) => {
                     displaySelectAll={false}
                     adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="5" style={{textAlign: 'center'}}>
+                        <TableHeaderColumn colSpan="1" style={{textAlign: 'left'}}>
                             Detalle
+                        </TableHeaderColumn>
+                        <TableHeaderColumn colSpan="3" style={{textAlign: 'left'}}>
+
+                        </TableHeaderColumn>
+                        <TableHeaderColumn colSpan="1" style={{textAlign: 'center'}}>
+                            <Checkbox
+                                //className="table-body"
+                                // checkedIcon={<CheckedIcon />}
+                                // uncheckedIcon={<UnCheckedIcon />}
+                                label="Entregado"
+                                style={styles.checkbox}
+                            />
                         </TableHeaderColumn>
                     </TableRow>
                     <TableRow>
@@ -65,7 +90,7 @@ const OrderProductsList = ({order, products, print}) => {
                     </TableRow>
                 </TableFooter>
             </Table>
-            <Ticket/>
+            {/*<Ticket/>*/}
             <FloatingActionButton className="add-product-button" onClick={print}>
                 <Print />
             </FloatingActionButton>
