@@ -11,8 +11,8 @@ function onClick() {
 
 const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmit, handleChange, handleToggle}) => {
     return (
-
         <form>
+        {/*<form onSubmit={onSubmit} id="newProduct">*/}
             <SelectField
                 required
                 floatingLabelFixed={true}

@@ -10,6 +10,9 @@ class OrdersDetailPage extends Component {
 
         }
     }
+    print=()=>{
+        window.print();
+    };
 
     render() {
         const {order, orderFound, products} = this.props;
@@ -28,7 +31,7 @@ class OrdersDetailPage extends Component {
             <div>
                 {
                     orderFound &&
-                    <OrdersDetailComponent order={order} products={products}/>
+                    <OrdersDetailComponent order={order} products={products} print={this.print}/>
                 }
                 {/*<OrdersDetailComponent order={order}/>*/}
             </div>

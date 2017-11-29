@@ -1,7 +1,10 @@
 import React from 'react';
-import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, Avatar} from 'material-ui';
+import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, Avatar, FloatingActionButton} from 'material-ui';
+import Print from 'material-ui/svg-icons/action/print';
 
-const OrderProductsList = ({order, products}) => {
+import './ticket.css';
+import Ticket from "./Ticket";
+const OrderProductsList = ({order, products, print}) => {
     let productsLocal = [];
     if(order.products) {
         for (let prop in order.products) {
@@ -62,6 +65,10 @@ const OrderProductsList = ({order, products}) => {
                     </TableRow>
                 </TableFooter>
             </Table>
+            <Ticket/>
+            <FloatingActionButton className="add-product-button" onClick={print}>
+                <Print />
+            </FloatingActionButton>
         </div>
     );
 };

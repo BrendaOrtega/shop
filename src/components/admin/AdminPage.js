@@ -23,16 +23,16 @@ const Options = ({logOut}) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-        <MenuItem primaryText="Refresh" />
-        <MenuItem primaryText="Help" />
-        <MenuItem primaryText="Sign out" onClick={logOut}/>
+        <MenuItem primaryText="Home" containerElement={<Link to="/"/>}/>
+
+        <MenuItem primaryText="Salir" onClick={logOut}/>
     </IconMenu>
 );
 
 
 class AdminPage extends Component {
     state = {
-        open:false,
+        open:true,
     };
 
     componentWillMount(){
@@ -56,8 +56,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <AppBar
-
-
+                    
                     title="Admin Panel"
                     iconElementLeft={<IconButton onClick={this.handleOpen}>{this.state.open?<NavigationClose />:<Menu />}</IconButton>}
                     iconElementRight={<Options logOut={this.logOut}/>}
