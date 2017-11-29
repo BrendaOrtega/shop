@@ -5,8 +5,6 @@ import Print from 'material-ui/svg-icons/action/print';
 import './ticket.css';
 import Ticket from "./Ticket";
 
-// import CheckedIcon from 'material-ui/svg-icons/action/shopping-cart';
-//import UnCheckedIcon from 'material-ui/svg-icons/action/remove-shopping-cart';
 import {Checkbox} from 'material-ui';
 const styles = {
     block: {

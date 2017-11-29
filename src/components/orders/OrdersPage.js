@@ -9,6 +9,8 @@ import {
     FlatButton
 } from 'material-ui';
 //import ContentAdd from 'material-ui/svg-icons/content/add';
+import muiThemeable from 'material-ui/styles/muiThemeable';
+
 import NewOrderForm from "./NewOrderForm";
 
 class OrdersPage extends Component {
@@ -66,6 +68,7 @@ class OrdersPage extends Component {
                     history={this.props.history}
                     search={search}
                     handleSearch={this.handleChangeTextField}
+                    color={this.props.muiTheme.palette.primary1Color}
                 />
                 {/*<FloatingActionButton*/}
                     {/*onClick={this.handleOpen}*/}
@@ -105,5 +108,6 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
+OrdersPage = muiThemeable()(OrdersPage);
 OrdersPage = connect(mapStateToProps, mapDispatchToProps)(OrdersPage);
 export default OrdersPage;

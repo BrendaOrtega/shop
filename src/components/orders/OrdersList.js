@@ -1,8 +1,10 @@
 import React from 'react';
 import {Table, TableHeader, TableBody,/* TableFooter,*/ TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
 import Edit from 'material-ui/svg-icons/action/info';
+import CheckedIcon from 'material-ui/svg-icons/action/shopping-cart';
+import UnCheckedIcon from 'material-ui/svg-icons/action/remove-shopping-cart';
 
-export const OrdersList = ({orders, history}) => {
+export const OrdersList = ({orders, history, color}) => {
     return (
         <div>
             <Table className={"table-body"}>
@@ -32,7 +34,9 @@ export const OrdersList = ({orders, history}) => {
                                 <TableRowColumn>{p.id}</TableRowColumn>
                                 <TableRowColumn>{p.user}</TableRowColumn>
                                 <TableRowColumn>${p.total}</TableRowColumn>
-                                <TableRowColumn>{p.isDelivered ? 'Sí' : 'No'}</TableRowColumn>
+                                <TableRowColumn>
+                                    {p.isDelivered ? <CheckedIcon color={color}/> : <UnCheckedIcon/>}
+                                </TableRowColumn>
                                 <TableRowColumn >
                                     <IconButton onClick={() => {
                                         history.push('/admin/orders/'+p.id)

@@ -4,11 +4,9 @@
     <list default="true" id="13dfd722-5a85-4da3-a9af-256760959201" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/orders/OrderProductsList.js" afterPath="$PROJECT_DIR$/src/components/orders/OrderProductsList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/orders/OrdersDetailComponent.js" afterPath="$PROJECT_DIR$/src/components/orders/OrdersDetailComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/orders/OrdersDetailPage.js" afterPath="$PROJECT_DIR$/src/components/orders/OrdersDetailPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/actions/orderActions.js" afterPath="$PROJECT_DIR$/src/redux/actions/orderActions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/actions/userActions.js" afterPath="$PROJECT_DIR$/src/redux/actions/userActions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/ordersReducer.js" afterPath="$PROJECT_DIR$/src/redux/reducers/ordersReducer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/orders/OrdersComponent.js" afterPath="$PROJECT_DIR$/src/components/orders/OrdersComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/orders/OrdersList.js" afterPath="$PROJECT_DIR$/src/components/orders/OrdersList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/orders/OrdersPage.js" afterPath="$PROJECT_DIR$/src/components/orders/OrdersPage.js" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,14 +21,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OrderProductsList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/orders/OrderProductsList.js">
+      <file leaf-file-name="OrdersList.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="19" column="63" lean-forward="false" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+            <state relative-caret-position="133">
+              <caret line="35" column="72" lean-forward="false" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderProductsList.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/orders/OrderProductsList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,6 +63,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="OrdersComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrdersPage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#384#443#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ordersReducer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/reducers/ordersReducer.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrdersDetailPage.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrdersDetailPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersDetailPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+            <state relative-caret-position="119">
+              <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#147#183#0" expanded="true" />
@@ -82,19 +113,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersDetailComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="103" lean-forward="false" selection-start-line="7" selection-start-column="103" selection-end-line="7" selection-end-column="103" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -108,28 +127,6 @@
             <state relative-caret-position="129">
               <caret line="65" column="27" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="configureStore.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/store/configureStore.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rootReducer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/reducers/rootReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -201,15 +198,15 @@
         <option value="$PROJECT_DIR$/src/redux/reducers/rootReducer.js" />
         <option value="$PROJECT_DIR$/src/components/admin/AdminPage.js" />
         <option value="$PROJECT_DIR$/src/components/orders/NewOrderForm.js" />
-        <option value="$PROJECT_DIR$/src/components/orders/OrdersComponent.js" />
-        <option value="$PROJECT_DIR$/src/components/orders/OrdersPage.js" />
-        <option value="$PROJECT_DIR$/src/components/orders/OrdersList.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/userActions.js" />
         <option value="$PROJECT_DIR$/src/redux/actions/orderActions.js" />
         <option value="$PROJECT_DIR$/src/redux/reducers/ordersReducer.js" />
-        <option value="$PROJECT_DIR$/src/components/orders/OrderProductsList.js" />
         <option value="$PROJECT_DIR$/src/components/orders/OrdersDetailComponent.js" />
         <option value="$PROJECT_DIR$/src/components/orders/OrdersDetailPage.js" />
+        <option value="$PROJECT_DIR$/src/components/orders/OrderProductsList.js" />
+        <option value="$PROJECT_DIR$/src/components/orders/OrdersPage.js" />
+        <option value="$PROJECT_DIR$/src/components/orders/OrdersComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/orders/OrdersList.js" />
       </list>
     </option>
   </component>
@@ -458,12 +455,12 @@
       <workItem from="1511901526349" duration="5839000" />
       <workItem from="1511916522542" duration="1072000" />
       <workItem from="1511978678989" duration="1031000" />
-      <workItem from="1511980976284" duration="6149000" />
+      <workItem from="1511980976284" duration="6936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101263000" />
+    <option name="totallyTimeSpent" value="102050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="327" y="255" width="1366" height="741" extended-state="6" />
@@ -764,38 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/products/products.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="75" lean-forward="false" selection-start-line="34" selection-start-column="75" selection-end-line="34" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -868,12 +837,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/orders/OrderProductsList.js">
+    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersDetailPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="19" column="63" lean-forward="false" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+        <state relative-caret-position="119">
+          <caret line="40" column="40" lean-forward="false" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#147#183#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -881,20 +851,46 @@
     <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersDetailComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="103" lean-forward="false" selection-start-line="7" selection-start-column="103" selection-end-line="7" selection-end-column="103" />
+          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersDetailPage.js">
+    <entry file="file://$PROJECT_DIR$/src/components/orders/OrderProductsList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="21" column="57" lean-forward="false" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#147#183#0" expanded="true" />
+            <element signature="e#384#443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/orders/OrdersList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="35" column="72" lean-forward="false" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,7 @@ import React from 'react';
 import {OrdersList} from "./OrdersList";
 import {TextField} from 'material-ui';
 
-export const OrdersComponent = ({orders, history,  search, handleSearch}) => {
+export const OrdersComponent = ({orders, history,  search, handleSearch, color}) => {
     return (
         <div>
             <div className="search">
@@ -17,6 +17,7 @@ export const OrdersComponent = ({orders, history,  search, handleSearch}) => {
             <OrdersList
                 orders={orders}
                 history={history}
+                color={color}
             />
         </div>
     );
