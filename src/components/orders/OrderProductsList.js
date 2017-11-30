@@ -15,7 +15,7 @@ const styles = {
     },
 };
 
-const OrderProductsList = ({order, products, print, updateCheck}) => {
+const OrderProductsList = ({order, products,  print, updateCheck}) => {
     let productsLocal = [];
     if(order.products) {
         for (let prop in order.products) {
@@ -60,18 +60,12 @@ const OrderProductsList = ({order, products, print, updateCheck}) => {
 
                     { productsLocal.length > 0 ?
                         productsLocal.map( (p, index) => {
-                        let thisProduct = products.filter((product, key) => {
-                            return product.id === p.product;
-                        })[0];
-                        const productName = thisProduct.name;
-                        const content = thisProduct.presentation;
-                        const src = thisProduct.image;
                         return(
                             <TableRow key={index}>
-                                <TableRowColumn><Avatar src={src}/></TableRowColumn>
-                                <TableRowColumn>{content}</TableRowColumn>
+                                <TableRowColumn><Avatar src={p.image}/></TableRowColumn>
+                                <TableRowColumn>{p.presentation}</TableRowColumn>
                                 <TableRowColumn>{p.amount}</TableRowColumn>
-                                <TableRowColumn>{productName}</TableRowColumn>
+                                <TableRowColumn>{p.name}</TableRowColumn>
                                 <TableRowColumn>${p.subtotal}</TableRowColumn>
                             </TableRow>
                         )

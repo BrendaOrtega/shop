@@ -35,8 +35,8 @@ const Ticket = ({order, products, allProducts}) => {
 
                         return(
                             <TableRow>
-                                <TableRowColumn>{product.name}</TableRowColumn>
-                                <TableRowColumn>{product.presentation}</TableRowColumn>
+                                <TableRowColumn>{p.name}</TableRowColumn>
+                                <TableRowColumn>{p.presentation}</TableRowColumn>
                                 <TableRowColumn>{p.amount}</TableRowColumn>
                                 <TableRowColumn>${p.subtotal}</TableRowColumn>
                             </TableRow>
