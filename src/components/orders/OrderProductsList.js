@@ -52,7 +52,7 @@ const OrderProductsList = ({order, products,  print, updateCheck}) => {
                         <TableHeaderColumn tooltip="Presentación">Presentación</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Cantidad">Cantidad</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Nombre">Nombre</TableHeaderColumn>
-                        <TableHeaderColumn tooltip="Subtotal" >Subtotal</TableHeaderColumn>
+                        <TableHeaderColumn tooltip="Precio Unitario" >Precio Unitario</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
                 <TableBody
@@ -62,11 +62,11 @@ const OrderProductsList = ({order, products,  print, updateCheck}) => {
                         productsLocal.map( (p, index) => {
                         return(
                             <TableRow key={index}>
-                                <TableRowColumn><Avatar src={p.image}/></TableRowColumn>
-                                <TableRowColumn>{p.presentation}</TableRowColumn>
+                                <TableRowColumn><Avatar src={p.product.image}/></TableRowColumn>
+                                <TableRowColumn>{p.product.presentation}</TableRowColumn>
                                 <TableRowColumn>{p.amount}</TableRowColumn>
-                                <TableRowColumn>{p.name}</TableRowColumn>
-                                <TableRowColumn>${p.subtotal}</TableRowColumn>
+                                <TableRowColumn>{p.product.name}</TableRowColumn>
+                                <TableRowColumn>${p.product.price}</TableRowColumn>
                             </TableRow>
                         )
                         }) :
