@@ -2,8 +2,12 @@
     margin-top: 50px;
 }
 .admin-base{
-    height: 90vh;
+    
     padding-top: 60px;
+
+}
+.admin-base::-webkit-scrollbar{
+    width: 0;
 }
 .open-admin{
     padding:60px 1% 1% 18%;
@@ -15,5 +19,9 @@
     transition:all .3s ease;
 }
 .admin-bar{
+    background: #8e1c58;
+}
+.menu-selected{
+    color:white;
     background: #8e1c58;
 }
