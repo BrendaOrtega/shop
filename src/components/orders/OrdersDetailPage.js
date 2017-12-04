@@ -10,35 +10,49 @@ class OrdersDetailPage extends Component {
         super(props);
         this.state = {
             ticketProducts:[],
-            lista:''
+            lista:[],
+
         }
     }
     print=()=>{
         window.print();
     };
-    handleSelect=(lista, b, c)=>{
-        let ticketProducts = [];
-        console.log(lista, b, c);
+
+    handleSelect=(q, i)=>{
+        let orderUpdated = Object.assign({},this.props.order);
+        orderUpdated.selectAll = !orderUpdated.selectAll;
+        if(q==='all'){
+            console.log(orderUpdated);
+            for(let o of orderUpdated.products){
+                o.selected = orderUpdated.selectAll;
+            }
+
+        }else{
+            orderUpdated.products[i].selected = !orderUpdated.products[i].selected;
+        }
+
+        this.props.ordersActions.saveOrder(orderUpdated);
+
+        /*let ticketProducts = [];
+        console.log(lista);
+        //
         let {products} = this.props.order;
-        if(lista==='all'){
+       if(lista==='all'){
             ticketProducts = products;
-            console.log(ticketProducts);
-            this.setState({ticketProducts})
-
         }else if(lista==='none'){
-            console.log(ticketProducts);
-            this.setState({ticketProducts})
-
+           ticketProducts = [];
         } else{
              for(let i of lista){
                  ticketProducts.push(products[i]);
 
+                 //let orderUpdated = Object.assign({},this.props.order);
+                 //orderUpdated.products[i].selected = !orderUpdated.products[i].selected;
+                 //this.props.ordersActions.saveOrder(orderUpdated);
              }
-
-            console.log(ticketProducts);
-            //this.setState({ticketProducts});
         }
-        //this.setState({lista});
+        this.setState({ticketProducts})*/
+
+
     };
 
     updateCheck = () => {
@@ -48,7 +62,7 @@ class OrdersDetailPage extends Component {
     };
     render() {
         const {order, orderFound, products} = this.props;
-        console.log(order);
+        //console.log(order);
         // let names = [];
         // if(orderFound){
         //     for(let p of order.products){
@@ -64,12 +78,13 @@ class OrdersDetailPage extends Component {
                 {
                     orderFound &&
                     <OrderProductsList
+                        items={this.state.lista}
                         order={order}
                         products={products}
                         print={this.print}
                         updateCheck={this.updateCheck}
                         handleSelect={this.handleSelect}
-                        ticketProducts={this.state.ticketProducts}/>
+                        ticketProducts={this.props.order.products}/>
                 }
                 {/*<OrdersDetailComponent order={order}/>*/}
             </div>

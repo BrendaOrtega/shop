@@ -5,7 +5,7 @@ import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn,
 
 
 const Ticket = ({order, products}) => {
-    console.log('a imprimir', products);
+    //console.log('a imprimir', products);
     return (
         <div className="ticket">
 
