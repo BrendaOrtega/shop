@@ -10,13 +10,28 @@ export function saveCategorySuccess(category){
     }
 }
 
-export const saveCategory = (category) => (dispatch, getState) => {
+export const saveCategory = (category, imagePreview) => (dispatch, getState) => {
     let updates = {};
     let key;
     if (category.id) key = category.id;
     else key = db.push().key;
     category['id'] = key;
 
+    if(imagePreview.file){
+        return firebase.storage().ref('categories/'+key).put(imagePreview.file)
+            .then(r=>{
+                category['image']=r.downloadURL;
+                updates[`dev/categories/${key}`] = category;
+                return db.update(updates)
+                    .then(r=>{
+                        return Promise.resolve(r);
+                    }).catch(e=>{
+                        return Promise.reject(e);
+                    })
+            }).catch(e=>{
+
+            })
+    }else{
         updates[`dev/categories/${key}`] = category;
         return db.update(updates)
             .then(r=>{
@@ -24,10 +39,13 @@ export const saveCategory = (category) => (dispatch, getState) => {
             }).catch(e=>{
                 return Promise.reject(e);
             })
+    }
+
+
 };
 
 //onchild changed
-export const updateProduct=()=>(dispatch, getState)=>{
+export const updateCategory=()=>(dispatch, getState)=>{
     return db.child('/dev/categories').on('child_changed', snap=>{
         dispatch(saveCategorySuccess(snap.val()))
     })

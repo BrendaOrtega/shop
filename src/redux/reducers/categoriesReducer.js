@@ -4,14 +4,14 @@ export function categoriesReducer(state=[], action){
     switch(action.type){
         case GET_CATEGORIES_SUCCESS:
 
-            return [...state, action.products];
+            return [...state, action.categories];
         case DELETE_CATEGORY_SUCCES:
-            let product = action.product;
-            return state.filter(p=>(p.id!==product.id));
+            let category = action.category;
+            return state.filter(p=>(p.id!==category.id));
         case SAVE_CATEGORY_SUCCESS:
-            let list = state.filter(p=>(p.id!==action.product.id));
-            let newP = action.product;
-            return [...list, newP];
+            let list = state.filter(p=>(p.id!==action.category.id));
+            let newC = action.category;
+            return [...list, newC];
         default:
             return state;
     }

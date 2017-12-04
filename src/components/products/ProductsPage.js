@@ -44,6 +44,7 @@ class ProductsPage extends Component {
         this.setState({search:e.target.value})
     };
 
+
     uploadPhoto=(e)=>{
         let {imagePreview} = this.state;
         let file = e.target.files[0];
@@ -63,12 +64,13 @@ class ProductsPage extends Component {
     };
 
     handleClose = () => {
-        this.setState({open: false});
+        this.setState({open: false, newProduct:{}, imagePreview:{}});
     };
     handleText=(e)=>{
         let newProduct = Object.assign({},this.state.newProduct);
         let field = e.target.name;
         newProduct[field] = e.target.value;
+
         this.setState({newProduct});
         console.log(newProduct)
 
@@ -183,6 +185,7 @@ class ProductsPage extends Component {
                         onSubmit={this.saveProduct}
                         handleChange={this.handleChange}
                         handleToggle={this.handleToggle}
+                        categories={this.props.categories}
                     />
                 </Dialog>
             </div>
@@ -195,6 +198,7 @@ function mapStateToProps(state, ownProps) {
     return {
         products: state.products,
         fetched: state.products!==undefined,
+        categories:state.categories,
     }
 }
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {OrdersDetailComponent} from "./OrdersDetailComponent";
+import OrderProductsList from './OrderProductsList';
 //import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as ordersActions from '../../redux/actions/orderActions';
@@ -9,11 +9,36 @@ class OrdersDetailPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            ticketProducts:[],
+            lista:''
         }
     }
     print=()=>{
         window.print();
+    };
+    handleSelect=(lista, b, c)=>{
+        let ticketProducts = [];
+        console.log(lista, b, c);
+        let {products} = this.props.order;
+        if(lista==='all'){
+            ticketProducts = products;
+            console.log(ticketProducts);
+            this.setState({ticketProducts})
+
+        }else if(lista==='none'){
+            console.log(ticketProducts);
+            this.setState({ticketProducts})
+
+        } else{
+             for(let i of lista){
+                 ticketProducts.push(products[i]);
+
+             }
+
+            console.log(ticketProducts);
+            //this.setState({ticketProducts});
+        }
+        //this.setState({lista});
     };
 
     updateCheck = () => {
@@ -38,7 +63,13 @@ class OrdersDetailPage extends Component {
             <div>
                 {
                     orderFound &&
-                    <OrdersDetailComponent order={order} products={products} print={this.print} updateCheck={this.updateCheck}/>
+                    <OrderProductsList
+                        order={order}
+                        products={products}
+                        print={this.print}
+                        updateCheck={this.updateCheck}
+                        handleSelect={this.handleSelect}
+                        ticketProducts={this.state.ticketProducts}/>
                 }
                 {/*<OrdersDetailComponent order={order}/>*/}
             </div>

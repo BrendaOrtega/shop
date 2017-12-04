@@ -9,7 +9,7 @@ function onClick() {
 }
 
 
-const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmit, handleChange, handleToggle}) => {
+const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmit, handleChange, handleToggle, categories}) => {
     return (
         <form>
         {/*<form onSubmit={onSubmit} id="newProduct">*/}
@@ -22,13 +22,12 @@ const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmi
                 value={newProduct.category}
                 onChange={handleChange}
             >
-                <MenuItem value={'abarrotes'} primaryText="Abarrotes" />
-                <MenuItem value={'cremeria'} primaryText="Cremería" />
-                <MenuItem value={'desechables'} primaryText="Desechables" />
-                <MenuItem value={'frutos-secos-y-semillas'} primaryText="Frutos Secos" />
-                <MenuItem value={'frutas-y-verduras'} primaryText="Frutas y Verduras" />
-                <MenuItem value={'productos-de-limpieza'} primaryText="Limpieza" />
-                <MenuItem value={'materias-primas'} primaryText="Materias Primas" />
+                {categories.map((c, key)=>{
+                    return(
+                        <MenuItem key={key} value={c.slug} primaryText={c.name} />
+                    )
+                })}
+
 
             </SelectField>
             <br/>
@@ -80,7 +79,7 @@ const ProductForm = ({handleText, newProduct, uploadPhoto, imagePreview, onSubmi
             <input ref={input => elInput = input } type="file" hidden onChange={uploadPhoto} required name="image"/>
             <div className="form-photo">
                 <Avatar
-                    src={newProduct.image?newProduct.image:imagePreview.src}
+                    src={!imagePreview.src?newProduct.image:imagePreview.src}
                     size={150}
                     onClick={onClick}/>
             </div>

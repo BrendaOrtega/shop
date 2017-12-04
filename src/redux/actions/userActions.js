@@ -1,6 +1,7 @@
 import firebase from '../../firebase';
 import {getProducts, removeProduct, updateProduct} from "./productActions";
 import {getOrders, removeOrder, updateOrder} from "./orderActions";
+import {getCategories, removeCategory, updateCategory} from "./categoryActions";
 
 
 //LogIn Functions
@@ -64,10 +65,13 @@ export const checkIfUser = () => (dispatch, getState) =>{
             dispatch(checkIfUserSuccess(user));
             dispatch(getProducts());
             dispatch(getOrders());
+            dispatch(getCategories());
             dispatch(updateOrder());
             dispatch(removeOrder());
             dispatch(removeProduct());
             dispatch(updateProduct());
+            dispatch(removeCategory());
+            dispatch(updateCategory());
         }else{
 
         }

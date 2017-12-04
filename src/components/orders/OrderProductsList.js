@@ -15,19 +15,22 @@ const styles = {
     },
 };
 
-const OrderProductsList = ({order, products,  print, updateCheck}) => {
+const OrderProductsList = ({order, products,  print, updateCheck, handleSelect, ticketProducts}) => {
     let productsLocal = [];
     if(order.products) {
         for (let prop in order.products) {
             productsLocal.push(order.products[prop]);
         }
     }
+
     return (
         <div>
-            <Table className={"table-body"}>
+            <Table className={"table-body"}
+                   allRowsSelected={true}
+                   multiSelectable={true}
+                   onRowSelection={handleSelect}>
                 <TableHeader
-                    displaySelectAll={false}
-                    adjustForCheckbox={false}>
+                    enableSelectAll>
                     <TableRow>
                         <TableHeaderColumn colSpan="1" style={{textAlign: 'left'}}>
                             Detalle
@@ -55,8 +58,7 @@ const OrderProductsList = ({order, products,  print, updateCheck}) => {
                         <TableHeaderColumn tooltip="Precio Unitario" >Precio Unitario</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
-                <TableBody
-                    displayRowCheckbox={false}>
+                <TableBody>
 
                     { productsLocal.length > 0 ?
                         productsLocal.map( (p, index) => {
@@ -86,7 +88,7 @@ const OrderProductsList = ({order, products,  print, updateCheck}) => {
             </Table>
 
             <div className="printable">
-                <Ticket order={order} products={productsLocal} allProducts={products}/>
+                <Ticket order={order} products={ticketProducts} />
             </div>
 
             <FloatingActionButton className="add-product-button" onClick={print}>

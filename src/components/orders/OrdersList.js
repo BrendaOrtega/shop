@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table, TableHeader, TableBody,/* TableFooter,*/ TableRow, TableHeaderColumn, TableRowColumn, IconButton} from 'material-ui';
 import Edit from 'material-ui/svg-icons/action/info';
-
+import {Link} from 'react-router-dom';
 import CheckedIcon from 'material-ui/svg-icons/action/shopping-cart';
 import UnCheckedIcon from 'material-ui/svg-icons/action/remove-shopping-cart';
 
@@ -16,7 +16,7 @@ export const OrdersList = ({orders, history, color}) => {
                     displaySelectAll={false}
                     adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="4" style={{textAlign: 'center'}}>
+                        <TableHeaderColumn colSpan="5" style={{textAlign: 'center'}}>
                             Lista de Ordenes
                         </TableHeaderColumn>
                     </TableRow>
@@ -52,7 +52,7 @@ export const OrdersList = ({orders, history, color}) => {
                             </TableRow>
                         )):
                             <TableRow>
-                                <TableRowColumn colSpan="4">No hay datos</TableRowColumn>
+                                <TableRowColumn colSpan="5">No hay datos</TableRowColumn>
                             </TableRow>
                     }
                 </TableBody>
