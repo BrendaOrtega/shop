@@ -16,6 +16,7 @@ import OrdersPage from "../orders/OrdersPage";
 import ProductsPage from "../products/ProductsPage";
 import OrdersDetailPage from "../orders/OrdersDetailPage";
 import CategoriesPage from '../categories/CategoriesPage';
+import HistoryPage from '../orders/HistoryPage';
 
 
 
@@ -100,7 +101,7 @@ class AdminPage extends Component {
                             <Route path={`/admin/products`} component={ProductsPage}/>
                             <Route path={`/admin/orders/:id`} component={OrdersDetailPage}/>
                             <Route path={`/admin/orders`} component={OrdersPage}/>
-                            <Route path={`/admin/history`} component={OrdersPage}/>
+                            <Route path={`/admin/history`} component={HistoryPage}/>
                             <Route path={`/admin/categories`} component={CategoriesPage}/>
                         </Switch>
                     </div>

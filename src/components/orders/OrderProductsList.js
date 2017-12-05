@@ -57,7 +57,7 @@ const OrderProductsList = ({order, products,  print, updateCheck, handleSelect, 
 
                                 checked={order.selectAll}
                                 onCheck={()=>handleSelect('all')}
-                                
+
                                 style={styles.checkbox}
                             />
                         </TableHeaderColumn>

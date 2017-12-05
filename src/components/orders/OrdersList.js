@@ -42,9 +42,7 @@ export const OrdersList = ({orders, history, color}) => {
                                     {p.isDelivered ? <CheckedIcon color={color}/> : <UnCheckedIcon/>}
                                 </TableRowColumn>
                                 <TableRowColumn >
-                                    <IconButton onClick={() => {
-                                        history.push('/admin/orders/'+p.id)
-                                    }}>
+                                    <IconButton containerElement={<Link to={'/admin/orders/'+p.id}/>}>
                                         <Edit/>
                                     </IconButton>
                                 </TableRowColumn>
