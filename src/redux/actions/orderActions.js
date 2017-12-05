@@ -1,4 +1,5 @@
 import firebase from '../../firebase';
+import Alert from 'react-s-alert';
 const db = firebase.database().ref();
 
 //get Orders
@@ -13,6 +14,17 @@ export function getOrdersSuccess(order){
 
 export const getOrders=()=>(dispatch, getState)=>{
   return db.child('/dev/orders').on('child_added', snap=>{
+      const beep = require('../../assets/beep.mp3');
+      Alert.info('Tienes una nueva orden', {
+          position: 'top-right',
+          effect: 'scale',
+          onShow: function () {
+              console.log('I work!')
+          },
+          beep: beep,
+          timeout: 'none',
+          offset: 100
+      });
       dispatch(getOrdersSuccess(snap.val()))
   });
 };

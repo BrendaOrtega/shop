@@ -10,7 +10,8 @@ import {MuiThemeProvider} from "material-ui";
 import {Provider} from 'react-redux';
 import {checkIfUser} from "./redux/actions/userActions";
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/scale.css';
 
 
 export const store = configureStore();
