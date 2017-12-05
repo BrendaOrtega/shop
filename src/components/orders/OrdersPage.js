@@ -10,7 +10,6 @@ import {
 } from 'material-ui';
 //import ContentAdd from 'material-ui/svg-icons/content/add';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-
 import NewOrderForm from "./NewOrderForm";
 
 class OrdersPage extends Component {
@@ -22,7 +21,6 @@ class OrdersPage extends Component {
             search: ''
         };
     }
-
     handleChange = (event, index, value) => this.setState({value});
 
     handleChangeTextField = (e) => {
@@ -95,8 +93,12 @@ class OrdersPage extends Component {
 
 
 function mapStateToProps(state, ownProps) {
+    // return only those orders which they haven't been delivered yet
+    const ordersNotDelivered = state.orders.filter( order => {
+       return !order.isDelivered
+    });
     return {
-        orders: state.orders,
+        orders: ordersNotDelivered,
         fetched: state.orders !== undefined,
         products: state.products
     }
