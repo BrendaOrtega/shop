@@ -31,6 +31,7 @@ const CategoryForm = ({newCat, imagePreview, uploadPhoto, handleText}) => {
                 floatingLabelText="Slug"
                 floatingLabelFixed={true}
                 name="slug"
+                disabled={true}
                 value={newCat.slug}/>
             <br/>
 

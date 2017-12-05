@@ -5,7 +5,7 @@ export function ordersReducer(state=[], action){
     switch(action.type){
         case GET_ORDERS_SUCCESS:
             console.log('Se ejecuta esto');
-            return [...state, action.order];
+            return [ action.order, ...state];
         case DELETE_ORDER_SUCCESS:
             return [... state.filter(o=>(o.id!==order.id))];
         case UPDATE_ORDER_SUCCESS:
