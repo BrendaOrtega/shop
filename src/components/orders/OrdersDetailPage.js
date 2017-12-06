@@ -11,11 +11,15 @@ class OrdersDetailPage extends Component {
         this.state = {
             ticketProducts:[],
             lista:[],
+            ticket:false,
 
         }
     }
-    print=()=>{
-        window.print();
+    print=(ticket)=>{
+        this.setState({ticket}, function(){
+            window.print();
+        });
+
     };
 
     handleSelect=(q, i)=>{
@@ -82,6 +86,7 @@ class OrdersDetailPage extends Component {
                         order={order}
                         products={products}
                         print={this.print}
+                        ticket={this.state.ticket}
                         updateCheck={this.updateCheck}
                         handleSelect={this.handleSelect}
                         ticketProducts={this.props.order.products}/>

@@ -1,9 +1,12 @@
 import React from 'react';
-import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, Avatar, FloatingActionButton} from 'material-ui';
+import {Table, TableHeader, TableBody, TableFooter, TableRow, TableHeaderColumn, TableRowColumn, Avatar, FloatingActionButton, IconButton} from 'material-ui';
 import Print from 'material-ui/svg-icons/action/print';
+import Recipet from 'material-ui/svg-icons/action/receipt';
 import '../products/products.css';
 import './ticket.css';
 import Ticket from "./Ticket";
+import TicketCliente from "./TicketCliente";
+
 
 import {Checkbox} from 'material-ui';
 const styles = {
@@ -15,7 +18,7 @@ const styles = {
     },
 };
 
-const OrderProductsList = ({order, products,  print, updateCheck, handleSelect, ticketProducts}) => {
+const OrderProductsList = ({order, products,  print, updateCheck, handleSelect, ticketProducts, ticket}) => {
     ticketProducts = ticketProducts.filter(p=>p.selected===true);
     let productsLocal = [];
     if(order.products) {
@@ -36,7 +39,7 @@ const OrderProductsList = ({order, products,  print, updateCheck, handleSelect, 
                         <TableHeaderColumn colSpan="1" style={{textAlign: 'left'}}>
                             Detalle
                         </TableHeaderColumn>
-                        <TableHeaderColumn colSpan="3" style={{textAlign: 'left'}}>
+                        <TableHeaderColumn colSpan="4" style={{textAlign: 'left'}}>
 
                         </TableHeaderColumn>
                         <TableHeaderColumn colSpan="1" style={{textAlign: 'center'}}>
@@ -108,11 +111,21 @@ const OrderProductsList = ({order, products,  print, updateCheck, handleSelect, 
             </Table>
 
             <div className="printable">
-                <Ticket order={order} products={ticketProducts} />
+                {!ticket?
+                    <Ticket order={order} products={ticketProducts} />
+                    :
+                    <TicketCliente order={order} products={order.products} />
+                }
+
+
             </div>
 
-            <FloatingActionButton className="add-product-button" onClick={print}>
-                <Print />
+
+            <FloatingActionButton className="add-product-button" onClick={()=>print(false)}>
+               <Print/>
+            </FloatingActionButton>
+            <FloatingActionButton className="add-product-button2" onClick={()=>print(true)}>
+                <Recipet/>
             </FloatingActionButton>
         </div>
     );

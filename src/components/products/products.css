@@ -14,6 +14,11 @@
     bottom: 5%;
     right:5%;
 }
+.add-product-button2{
+    position: absolute;
+    bottom: 15%;
+    right:5%;
+}
 .table-body{
     min-width:1000px;
     position:relative;

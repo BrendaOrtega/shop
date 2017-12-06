@@ -14,7 +14,7 @@ const Ticket = ({order, products}) => {
                     displaySelectAll={false}
                     adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn colSpan="3" style={{textAlign: 'center'}}>
+                        <TableHeaderColumn colSpan="4" style={{textAlign: 'center'}}>
                             <h3>Orden {order.id}</h3>
                         </TableHeaderColumn>
                     </TableRow>
@@ -22,6 +22,7 @@ const Ticket = ({order, products}) => {
                         <TableHeaderColumn tooltip="Nombre">Nombre</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Presentación">Presentación</TableHeaderColumn>
                         <TableHeaderColumn tooltip="Cantidad">Cantidad</TableHeaderColumn>
+                        <TableHeaderColumn tooltip="Cantidad">Precio Unitario</TableHeaderColumn>
 
                     </TableRow>
                 </TableHeader>
@@ -36,13 +37,18 @@ const Ticket = ({order, products}) => {
                                 <TableRowColumn>{p.product.name}</TableRowColumn>
                                 <TableRowColumn>{p.product.presentation}</TableRowColumn>
                                 <TableRowColumn>{p.amount}</TableRowColumn>
+                                <TableRowColumn>{p.product.price}</TableRowColumn>
 
                             </TableRow>
                         );
                     })}
                 </TableBody>
                 <TableFooter>
-
+                    <TableRow>
+                        <TableRowColumn colSpan="3" style={{textAlign: 'right'}}>
+                            Total: ${order.total}
+                        </TableRowColumn>
+                    </TableRow>
                     <TableRow>
                         <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
 

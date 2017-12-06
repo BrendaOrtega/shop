@@ -36,11 +36,13 @@ class HistoryPage extends Component {
             <div>
                 <div className="search">
                     <DatePicker
-                        hintText="Fecha 1"
+                        style={{padding:'1%'}}
+                        hintText="Filtro Fecha 1"
                         autoOk={true}
                         onChange={this.handleDate}/>
                     <DatePicker
-                        hintText="Fecha 2"
+                        style={{padding:'1%'}}
+                        hintText="Filtro Fecha 2"
                         autoOk={true}
                         onChange={this.handleDate2}/>
 
