@@ -1,5 +1,6 @@
 import firebase from '../../firebase';
 import Alert from 'react-s-alert';
+import {notify} from '../../NotificationAPI';
 const db = firebase.database().ref();
 
 //get Orders
@@ -26,8 +27,13 @@ export const getOrders=()=>(dispatch, getState)=>{
               timeout: 'none',
               offset: 100
           });
+          const notification = notify('Shoppy dice', '¡Tienes una nueva orden!');
       }
-
+      // notification.onclick = function (r) {
+      //     const history = window.history;
+      //     console.log(history);
+      //     history.pushState('/admin');
+      // };
       dispatch(getOrdersSuccess(snap.val()))
   });
 };
