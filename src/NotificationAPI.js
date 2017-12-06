@@ -10,7 +10,7 @@ export function enableNotificationAPI() {
 
 export function notify(title, message) {
     const icon = require('./assets/shopy.png');
-    const beep = require('./assets/beep2.mp3');
+    const beep = require('./assets/beep.mp3');
     const options = {
         body: message,
         icon: icon,
@@ -21,9 +21,11 @@ export function notify(title, message) {
     let n = new Notification(title, options);
     //setTimeout(n.close.bind(n), 4000);
     n.onclick = function (r) {
-        console.log('I should go to orders page but I do not how')
+        console.log('I should go to orders page but I do not how');
         n.close()
     };
+    let sound = new Audio(beep);
+    sound.play();
     return n;
 }
 
